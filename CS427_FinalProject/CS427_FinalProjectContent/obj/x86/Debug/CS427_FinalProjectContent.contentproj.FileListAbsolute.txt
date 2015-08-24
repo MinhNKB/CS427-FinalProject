@@ -1,0 +1,2 @@
+D:\Google Drive\APCS - HCMUS\[2] Third year\Term 3\CS427\Projects\CS427_FinalProject\CS427_FinalProject\CS427_FinalProjectContent\obj\x86\Debug\CS427_FinalProjectContent.contentprojResolveAssemblyReference.cache
+D:\APCS\CS427\CS427_FinalProject\CS427_FinalProject\CS427_FinalProject\CS427_FinalProjectContent\obj\x86\Debug\CS427_FinalProjectContent.contentprojResolveAssemblyReference.cache

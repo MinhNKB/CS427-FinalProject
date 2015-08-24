@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CS427_FinalProject.Game" Collapsed="true">
+    <Position X="13" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAEEAAAAAAAwAAAAAAAAAAAAAAAAgAAAAAAABAAAQ=</HashCode>
+      <FileName>Game.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CS427_FinalProject.Program" Collapsed="true">
+    <Position X="13" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CS427_FinalProject.GameEntity" Collapsed="true">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameEntity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CS427_FinalProject.Global" Collapsed="true">
+    <Position X="14.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABEAABAAIAAAAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Global.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CS427_FinalProject.InvisibleGameEntity" Collapsed="true">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>InvisibleGameEntity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CS427_FinalProject.KeyboardHelper" Collapsed="true">
+    <Position X="3.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAACAAAACQAAAACCAAQAAAAAA=</HashCode>
+      <FileName>KeyboardHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CS427_FinalProject.MouseHelper" Collapsed="true">
+    <Position X="1.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAIAAAAAACACBAAACABAAAAQAAACAAAAAAAAgA=</HashCode>
+      <FileName>MouseHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CS427_FinalProject.Sprite2D" Collapsed="true">
+    <Position X="14.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAQAAABYQAAghAAAEAAEAgAAAKAAAgCAAAAIAAABA=</HashCode>
+      <FileName>Sprite2D.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CS427_FinalProject.VisibleGameEntity" Collapsed="true">
+    <Position X="8.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>VisibleGameEntity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CS427_FinalProject.GameHandler">
+    <Position X="10.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAACAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CS427_FinalProject.GameViewHandler">
+    <Position X="8.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAEAAAAAAAAgAAAAAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameViewHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CS427_FinalProject.MenuViewHandler">
+    <Position X="6" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MenuViewHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CS427_FinalProject.ViewHandler">
+    <Position X="7.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
