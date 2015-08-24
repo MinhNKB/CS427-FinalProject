@@ -1,0 +1,43 @@
+<Maps>
+	<Map>
+		<Tiles>
+			<Tile Height="64" Width="64" Left="0" Top="656" Depth="0.1" Type="4"></Tile>
+			<Tile Height="64" Width="64" Left="0" Top="592" Depth="0.1" Type="1"></Tile>
+			<Tile Height="64" Width="64" Left="64" Top="656" Depth="0.1" Type="4"></Tile>
+			<Tile Height="64" Width="64" Left="64" Top="592" Depth="0.1" Type="1"></Tile>
+			<Tile Height="64" Width="64" Left="128" Top="656" Depth="0.1" Type="4"></Tile>
+			<Tile Height="64" Width="64" Left="128" Top="592" Depth="0.1" Type="1"></Tile>
+			<Tile Height="64" Width="64" Left="192" Top="656" Depth="0.1" Type="5"></Tile>
+			<Tile Height="64" Width="64" Left="192" Top="592" Depth="0.1" Type="2"></Tile>
+			<Tile Height="64" Width="64" Left="0" Top="528" Depth="0.1" Type="1"></Tile>
+			<Tile Height="64" Width="64" Left="64" Top="528" Depth="0.1" Type="2"></Tile>
+			<Tile Height="64" Width="64" Left="448" Top="656" Depth="0.1" Type="3"></Tile>
+			<Tile Height="64" Width="64" Left="448" Top="592" Depth="0.1" Type="3"></Tile>
+			<Tile Height="64" Width="64" Left="448" Top="528" Depth="0.1" Type="0"></Tile>
+			<Tile Height="64" Width="64" Left="512" Top="656" Depth="0.1" Type="4"></Tile>
+			<Tile Height="64" Width="64" Left="512" Top="592" Depth="0.1" Type="4"></Tile>
+			<Tile Height="64" Width="64" Left="512" Top="528" Depth="0.1" Type="1"></Tile>
+			<Tile Height="64" Width="64" Left="576" Top="656" Depth="0.1" Type="4"></Tile>
+			<Tile Height="64" Width="64" Left="576" Top="592" Depth="0.1" Type="4"></Tile>
+			<Tile Height="64" Width="64" Left="576" Top="528" Depth="0.1" Type="1"></Tile>
+			<Tile Height="64" Width="64" Left="640" Top="656" Depth="0.1" Type="4"></Tile>
+			<Tile Height="64" Width="64" Left="640" Top="592" Depth="0.1" Type="4"></Tile>
+			<Tile Height="64" Width="64" Left="640" Top="528" Depth="0.1" Type="1"></Tile>
+			<Tile Height="64" Width="64" Left="704" Top="656" Depth="0.1" Type="4"></Tile>
+			<Tile Height="64" Width="64" Left="704" Top="592" Depth="0.1" Type="4"></Tile>
+			<Tile Height="64" Width="64" Left="704" Top="528" Depth="0.1" Type="1"></Tile>
+			<Tile Height="64" Width="64" Left="768" Top="656" Depth="0.1" Type="4"></Tile>
+			<Tile Height="64" Width="64" Left="768" Top="592" Depth="0.1" Type="4"></Tile>
+			<Tile Height="64" Width="64" Left="768" Top="528" Depth="0.1" Type="1"></Tile>
+			<Tile Height="64" Width="64" Left="832" Top="656" Depth="0.1" Type="4"></Tile>
+			<Tile Height="64" Width="64" Left="832" Top="592" Depth="0.1" Type="9"></Tile>
+			<Tile Height="64" Width="64" Left="832" Top="528" Depth="0.1" Type="2"></Tile>
+			<Tile Height="64" Width="64" Left="896" Top="656" Depth="0.1" Type="4"></Tile>
+			<Tile Height="64" Width="64" Left="896" Top="592" Depth="0.1" Type="10"></Tile>
+			<Tile Height="64" Width="64" Left="960" Top="656" Depth="0.1" Type="4"></Tile>
+			<Tile Height="64" Width="64" Left="960" Top="592" Depth="0.1" Type="1"></Tile>
+			<Tile Height="64" Width="64" Left="1024" Top="656" Depth="0.1" Type="5"></Tile>
+			<Tile Height="64" Width="64" Left="1024" Top="592" Depth="0.1" Type="2"></Tile>
+		</Tiles>
+	</Map>
+</Maps>
