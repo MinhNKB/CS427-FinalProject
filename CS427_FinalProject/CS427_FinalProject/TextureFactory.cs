@@ -20,8 +20,20 @@ namespace CS427_FinalProject
 
         public static void Load()
         {
-            LoadBackgroundTextures();
+            LoadBackgroundTexture();
             LoadCharacterTextures();
+            LoadMapTileTextures();
+        }
+
+        private static void LoadMapTileTextures()
+        {
+            mapTileTextures = new List<List<Texture2D>>();
+            for (int i = 0; i < 18; ++i)
+            {
+                List<Texture2D> tmp = new List<Texture2D>();
+                tmp.Add(Global.gContent.Load<Texture2D>(@"Textures\Maps\Forrest\Tiles\Tile_" + i.ToString("00")));
+                mapTileTextures.Add(tmp);
+            }
         }
 
         private static void LoadCharacterTextures()
@@ -52,10 +64,10 @@ namespace CS427_FinalProject
             characterTextures.Add(CharacterTexture.Dog, textures);
         }
 
-        private static void LoadBackgroundTextures()
+        private static void LoadBackgroundTexture()
         {
             backgroundTexture = new List<Texture2D>();
-            backgroundTexture.Add(Global.gContent.Load<Texture2D>(@"Textures\Maps\Snow\Background\Background_00"));
+            backgroundTexture.Add(Global.gContent.Load<Texture2D>(@"Textures\Maps\Forrest\Background\Background_00"));
         }
     }
 }
