@@ -41,7 +41,7 @@ namespace CS427_FinalProject
                 MapTile newTile = LoadTileFromXmlNode(tileNode);
                 tiles.Add(newTile);
                 AddToHSortedTiles(newTile);
-                AddToVSortedTiles(newTile);
+                //AddToVSortedTiles(newTile);
             }
         }
 
