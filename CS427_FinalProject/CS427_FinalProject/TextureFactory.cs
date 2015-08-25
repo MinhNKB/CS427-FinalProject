@@ -40,28 +40,40 @@ namespace CS427_FinalProject
         {
             characterTextures = new Dictionary<CharacterTexture, Dictionary<CharacterState, List<Texture2D>>>();
             LoadDogTextures();
-            //LoadCatTextures();
+            LoadCatTextures();
+        }
+
+        private static void LoadCatTextures()
+        {
+            Dictionary<CharacterState, List<Texture2D>> textures = LoadCharacterTextures("Cat");
+            characterTextures.Add(CharacterTexture.Cat, textures);
         }
 
         private static void LoadDogTextures()
+        {           
+            Dictionary<CharacterState, List<Texture2D>> textures = LoadCharacterTextures("Dog");
+            characterTextures.Add(CharacterTexture.Dog, textures);
+        }
+
+        private static Dictionary<CharacterState, List<Texture2D>> LoadCharacterTextures(string s)
         {
             Dictionary<CharacterState, List<Texture2D>> textures = new Dictionary<CharacterState, List<Texture2D>>();
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 5; i++)
             {
                 CharacterState state = (CharacterState)i;
                 List<Texture2D> temp = new List<Texture2D>();
                 int count;
-                if (state == CharacterState.Idle)
+                if (state == CharacterState.Idle || state == CharacterState.Dead)
                     count = 10;
                 else
                     count = 8;
                 for (int j = 0; j < count; j++)
                 {
-                    temp.Add(Global.gContent.Load<Texture2D>(@"Textures\Characters\Dog\" + state.ToString() + @"\" + state.ToString() + "_" + j.ToString("00")));
+                    temp.Add(Global.gContent.Load<Texture2D>(@"Textures\Characters\" + s + "\\" + state.ToString() + @"\" + state.ToString() + "_" + j.ToString("00")));
                 }
                 textures.Add(state, temp);
             }
-            characterTextures.Add(CharacterTexture.Dog, textures);
+            return textures;
         }
 
         private static void LoadBackgroundTexture()

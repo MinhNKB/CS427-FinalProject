@@ -17,6 +17,15 @@ namespace CS427_FinalProject
         protected float horizontalVelocity, verticalVelocity;
         protected Keys lastKeyPressed = Keys.None;
         protected bool reverse = false;
+        protected Keys keyUp, keyDown, keyLeft, keyRight;
+        protected float jumpHeight;
+        protected Vector4 distances;
+
+        protected Vector4 Distances
+        {
+            get { return distances; }
+            set { distances = value; }
+        }
 
         public float ActualLeft
         {
@@ -79,6 +88,17 @@ namespace CS427_FinalProject
             this.CurrentState = CharacterState.Idle;
         }
 
+        protected void LoadSprites(CharacterTexture type)
+        {
+            Dictionary<CharacterState, List<Texture2D>> tmp = TextureFactory.characterTextures[type];
+            foreach (CharacterState state in tmp.Keys)
+            {
+                this.characterSprites.Add(state, new Sprite2D(tmp[state], 0, 0, 0, 0));
+                if (state != CharacterState.Idle && state != CharacterState.Run)
+                    this.characterSprites[state].Repeat = false;
+            }
+        }
+
         public void Spawn(float left,float bottom)
         {
             this.ActualLeft = left;
@@ -95,16 +115,22 @@ namespace CS427_FinalProject
             {
                 if (currentState != CharacterState.Dead)
                 {
-                    if (Global.gKeyboardHelper.IsKeyPressed(Keys.D))
+                    if (Global.gKeyboardHelper.IsKeyPressed(keyRight))
                     {
-                        horizontalVelocity = 10;                        
-                        lastKeyPressed = Keys.D;
+                        if (distances.Z >= 10)
+                            horizontalVelocity = 10;
+                        else
+                            horizontalVelocity = distances.Z;
+                        lastKeyPressed = keyRight;
                         this.reverse = false;
                     }
-                    if (Global.gKeyboardHelper.IsKeyPressed(Keys.A))
+                    if (Global.gKeyboardHelper.IsKeyPressed(keyLeft))
                     {
-                        horizontalVelocity = -10;                        
-                        lastKeyPressed = Keys.A;
+                        if (distances.X >= 10)
+                            horizontalVelocity = -10;
+                        else
+                            horizontalVelocity = -distances.X;
+                        lastKeyPressed = keyLeft;
                         this.reverse = true;
                     }
                     if (Global.gKeyboardHelper.IsKeyReleased(lastKeyPressed))
@@ -113,38 +139,42 @@ namespace CS427_FinalProject
                     }                    
                     if (this.currentState == CharacterState.Jump)
                     {
-                        if(this.characterSprites[CharacterState.Jump].ITexture == this.characterSprites[CharacterState.Jump].NTextures-1)
+                        jumpHeight += verticalVelocity;
+                        if(jumpHeight<=0)
                         {
-                            this.CurrentState = CharacterState.Fall;                            
-                            verticalVelocity = 20;
-                        }
+                            this.CurrentState = CharacterState.Fall;
+                            verticalVelocity = 15;
+                        }                     
                     }
                     if (this.currentState == CharacterState.Fall)
                     {
-                        if (this.characterSprites[CharacterState.Fall].ITexture == this.characterSprites[CharacterState.Fall].NTextures - 1)
+                        jumpHeight += verticalVelocity;
+                        if(jumpHeight>=150)
                         {
                             this.CurrentState = CharacterState.Idle;
-                            if(Global.gKeyboardHelper.IsKeyDown(lastKeyPressed))
+                            if (Global.gKeyboardHelper.IsKeyDown(lastKeyPressed))
                             {
                                 this.CurrentState = CharacterState.Run;
-                                if (lastKeyPressed == Keys.A)
+                                if (lastKeyPressed == keyLeft)
                                     this.reverse = true;
                                 else
                                     this.reverse = false;
                             }
                             verticalVelocity = 0;
-                        }
+                        }                    
                     }
                     if (currentState != CharacterState.Jump && currentState != CharacterState.Fall)
                     {
-                        if(Global.gKeyboardHelper.IsKeyPressed(Keys.A) || Global.gKeyboardHelper.IsKeyPressed(Keys.D))
+                        if(Global.gKeyboardHelper.IsKeyPressed(keyLeft) || Global.gKeyboardHelper.IsKeyPressed(keyRight))
                             this.CurrentState = CharacterState.Run;
                         if(Global.gKeyboardHelper.IsKeyReleased(lastKeyPressed))
                             this.CurrentState = CharacterState.Idle;
-                        if (Global.gKeyboardHelper.IsKeyDown(Keys.W))
+                        if (Global.gKeyboardHelper.IsKeyDown(keyUp))
                         {
                             this.CurrentState = CharacterState.Jump;
-                            verticalVelocity = -20;
+                            jumpHeight = 150;
+                            verticalVelocity = -15;
+                            jumpHeight += verticalVelocity;
                         }
                     }
                 }

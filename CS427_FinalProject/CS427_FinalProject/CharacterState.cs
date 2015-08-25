@@ -11,7 +11,7 @@ namespace CS427_FinalProject
         Run = 1,
         Fall = 2,
         Jump = 3,
-        Dead = 254,
+        Dead = 4,
         None = 255
     }
 }
