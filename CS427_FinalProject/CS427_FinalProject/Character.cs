@@ -21,7 +21,7 @@ namespace CS427_FinalProject
         protected float jumpHeight;
         protected Vector4 distances;
 
-        protected Vector4 Distances
+        public Vector4 Distances
         {
             get { return distances; }
             set { distances = value; }

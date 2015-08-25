@@ -9,11 +9,29 @@ namespace CS427_FinalProject
     class Characters : VisibleGameEntity
     {
         private List<Character> characters;
+
+        public List<Vector4> BoundingBoxes
+        {
+            get
+            {
+                List<Vector4> result = new List<Vector4>();
+                foreach(Character character in this.characters)
+                    result.Add(character.BoundingBox);
+                return result;
+            }
+        }
+
+        public void SetDistances(List<Vector4> distances)
+        {
+            for (int i = 0; i < distances.Count; ++i)
+                characters[i].Distances = distances[i];
+        }
+
         public Characters()
         {
             LoadCharacters();
-            characters[0].Spawn(0, 500);
-            characters[1].Spawn(500, 500);
+            characters[0].Spawn(0, 592);
+            characters[1].Spawn(500, 592);
         }
 
         private void LoadCharacters()
