@@ -13,12 +13,14 @@ namespace CS427_FinalProject
         {
             LoadCharacters();
             characters[0].Spawn(0, 500);
+            characters[1].Spawn(500, 500);
         }
 
         private void LoadCharacters()
         {
             characters = new List<Character>();
             characters.Add(new Dog());
+            characters.Add(new Cat());
         }
 
         public override void Update(GameTime gameTime)

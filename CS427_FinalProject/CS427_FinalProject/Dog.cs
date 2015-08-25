@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,12 +11,12 @@ namespace CS427_FinalProject
     {
         public Dog()
         {
-            Dictionary<CharacterState, List<Texture2D>> tmp = TextureFactory.characterTextures[CharacterTexture.Dog];
-            foreach(CharacterState state in tmp.Keys)
-            {
-                this.characterSprites.Add(state,new Sprite2D(tmp[state], 0,0,0,0));                
-            }
+            LoadSprites(CharacterTexture.Dog);
             this.CurrentState = CharacterState.None;
+            this.keyUp = Keys.W;
+            this.keyLeft = Keys.A;
+            this.keyRight = Keys.D;
+            this.keyDown = Keys.S;
         }
     }
 }
