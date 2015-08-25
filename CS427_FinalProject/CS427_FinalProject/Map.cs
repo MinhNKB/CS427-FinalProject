@@ -31,7 +31,9 @@ namespace CS427_FinalProject
         {
             List<KeyValuePair<float, List<MapTile>>> list = this.mapTiles.HSortedTiles;
             int index = MapTiles.FindIndexSortedTiles(boundingBox.W, list);
-            for (int i = index; index < list.Count; ++i)
+            if (index == list.Count)
+                return 720f - boundingBox.W;
+            for (int i = index; i < list.Count; ++i)
                 foreach (MapTile tile in list[i].Value)
                     if (IsHorizontalValid(boundingBox, tile) == true)
                         return Math.Abs(list[i].Key - boundingBox.W);
@@ -42,7 +44,9 @@ namespace CS427_FinalProject
         {
             List<KeyValuePair<float, List<MapTile>>> list = this.mapTiles.VSortedTiles;
             int index = MapTiles.FindIndexSortedTiles(boundingBox.Z, list);
-            for (int i = index; index < list.Count; ++i)
+            if (index == list.Count)
+                return 1280f - boundingBox.Z;               
+            for (int i = index; i < list.Count; ++i)
                 foreach (MapTile tile in list[i].Value)
                     if (IsVerticalValid(boundingBox, tile) == true)
                         return Math.Abs(list[i].Key - boundingBox.Z);
@@ -53,6 +57,8 @@ namespace CS427_FinalProject
         {
             List<KeyValuePair<float, List<MapTile>>> list = this.mapTiles.HSortedTiles;
             int index = MapTiles.FindIndexSortedTiles(boundingBox.Y, list);
+            if (index == list.Count)
+                return boundingBox.Y;
             if (list[index].Key == boundingBox.Y)
                 foreach (MapTile tile in list[index].Value)
                     if (IsHorizontalValid(boundingBox, tile) == true)
@@ -79,6 +85,8 @@ namespace CS427_FinalProject
         {
             List<KeyValuePair<float, List<MapTile>>> list = this.mapTiles.VSortedTiles;
             int index = MapTiles.FindIndexSortedTiles(boundingBox.X, list);
+            if (index == list.Count)
+                return boundingBox.X;
             if (list[index].Key == boundingBox.X)
                 foreach (MapTile tile in list[index].Value)
                     if (IsVerticalValid(boundingBox, tile) == true)
@@ -101,7 +109,7 @@ namespace CS427_FinalProject
             return false;
         }
 
-        public List<Vector4> GetDistance(List<Vector4> boundingBoxes)
+        public List<Vector4> GetDistances(List<Vector4> boundingBoxes)
         {
             List<Vector4> result = new List<Vector4>();
             for (int i = 0; i < boundingBoxes.Count; ++i)
