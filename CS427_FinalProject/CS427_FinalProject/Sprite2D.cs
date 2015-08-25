@@ -28,77 +28,114 @@ namespace CS427_FinalProject
 
         }
 
-        private List<Texture2D> _Textures;
+        private List<Texture2D> textures;
 
         public List<Texture2D> Textures
         {
-            get { return _Textures; }
+            get { return textures; }
             set { 
-                _Textures = value;
-                _nTextures = _Textures.Count;
-                _iTexture = 0;
+                textures = value;
+                nTextures = textures.Count;
+                iTexture = 0;
             }
         }
-        private int _nTextures;
+        private int nTextures;
 
         public int NTextures
         {
-            get { return _nTextures; }
-            set { _nTextures = value; }
+            get { return nTextures; }
+            set { nTextures = value; }
         }
-        private int _iTexture;
+        private int iTexture;
 
         public int ITexture
         {
-            get { return _iTexture; }
-            set { _iTexture = value; }
+            get { return iTexture; }
+            set { iTexture = value; }
         }
-        private float _Top;
+        private float top;
 
         public float Top
         {
-            get { return _Top; }
-            set { _Top = value; }
+            get { return top; }
+            set { top = value; }
         }
-        private float _Left;
+        private float left;
 
         public float Left
         {
-            get { return _Left; }
-            set { _Left = value; }
+            get { return left; }
+            set { left = value; }
         }
-        private int _Width;
+        private int width;
 
         public int Width
         {
-            get { return _Width; }
-            set { _Width = value; }
+            get { return width; }
+            set { width = value; }
         }
-        private int _Height;
+        private int height;
 
         public int Height
         {
-            get { return _Height; }
-            set { _Height = value; }
+            get { return height; }
+            set { height = value; }
         }
 
-        private float _Depth = 1;
+        private float depth = 1;
 
         public float Depth
         {
-            get { return _Depth; }
-            set { _Depth = value; }
+            get { return depth; }
+            set { depth = value; }
         }
+
+        private bool repeat = true;
+
+        public bool Repeat
+        {
+            get { return repeat; }
+            set { repeat = value; }
+        }
+
+        private SpriteEffects effect = SpriteEffects.None;
+        private float reverseFactor = 0;
+
+        private bool reverse = false;
+
+        public bool Reverse
+        {
+            get { return reverse; }
+            set {
+                reverse = value;
+                if(reverse==false)
+                {
+                    reverseFactor = 0;
+                    effect = SpriteEffects.None;
+                }
+                else
+                {
+                    reverseFactor = Width - 109;
+                    effect = SpriteEffects.FlipHorizontally;
+                }
+            }
+        }
+
 
         public void Update(GameTime gameTime)
         {
-            _iTexture = (_iTexture + 1) % (_nTextures);
+            if (repeat)
+                iTexture = (iTexture + 1) % (nTextures);
+            else
+                while (iTexture < nTextures - 1)
+                    iTexture++;
         }
 
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
 
-            spriteBatch.Draw(_Textures[_iTexture], new Vector2(_Left,_Top), new Rectangle(0, 0, _Textures[_iTexture].Width, _Textures[_iTexture].Height), Color.White);            
+            //spriteBatch.Draw(_Textures[_iTexture], new Vector2(_Left,_Top), new Rectangle(0, 0, _Textures[_iTexture].Width, _Textures[_iTexture].Height), Color.White);
+            spriteBatch.Draw(textures[iTexture], new Vector2(left - reverseFactor, top), new Rectangle(0, 0, Width, Height), Color.White, 0f, Vector2.Zero, 1, effect, depth);
         }
     }
 }
