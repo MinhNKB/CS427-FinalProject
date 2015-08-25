@@ -12,6 +12,7 @@ namespace CS427_FinalProject
         public Characters()
         {
             LoadCharacters();
+            characters[0].Spawn(0, 500);
         }
 
         private void LoadCharacters()

@@ -13,8 +13,9 @@ namespace CS427_FinalProject
             Dictionary<CharacterState, List<Texture2D>> tmp = TextureFactory.characterTextures[CharacterTexture.Dog];
             foreach(CharacterState state in tmp.Keys)
             {
-                this.characterSprites.Add(state,new Sprite2D(tmp[state], 0,0,0,0));
+                this.characterSprites.Add(state,new Sprite2D(tmp[state], 0,0,0,0));                
             }
+            this.CurrentState = CharacterState.None;
         }
     }
 }
