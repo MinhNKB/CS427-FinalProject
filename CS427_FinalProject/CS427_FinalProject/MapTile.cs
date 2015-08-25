@@ -25,29 +25,6 @@ namespace CS427_FinalProject
             set { boundingBox = value; }
         }
 
-        public BoundingBoxEdge CurrentEdge
-        {
-            set
-            {
-                if (value == BoundingBoxEdge.X)
-                    currentEdgeValue = this.boundingBox.X;
-                else if (value == BoundingBoxEdge.Y)
-                    currentEdgeValue = this.boundingBox.Y;
-                else if (value == BoundingBoxEdge.Z)
-                    currentEdgeValue = this.boundingBox.Z;
-                else if (value == BoundingBoxEdge.W)
-                    currentEdgeValue = this.boundingBox.W;
-            }
-        }
-
-        private float currentEdgeValue;
-
-        public float CurrentEdgeValue
-        {
-            get { return currentEdgeValue; }
-            set { currentEdgeValue = value; }
-        }
-
         public MapTile(float height, float width, float left, float top, float depth, int type)
         {
             this.sprite2D = new Sprite2D(TextureFactory.mapTileTextures[type], left, top, 0, 0);

@@ -18,8 +18,21 @@ namespace CS427_FinalProject
             set { tiles = value; }
         }
 
-        private List<MapTile> vSortedTiles;
-        private List<MapTile> hSortedTiles;
+        private List<KeyValuePair<float, List<MapTile>>> vSortedTiles;
+
+        public List<KeyValuePair<float, List<MapTile>>> VSortedTiles
+        {
+            get { return vSortedTiles; }
+            set { vSortedTiles = value; }
+        }
+
+        private List<KeyValuePair<float, List<MapTile>>> hSortedTiles;
+
+        public List<KeyValuePair<float, List<MapTile>>> HSortedTiles
+        {
+            get { return hSortedTiles; }
+            set { hSortedTiles = value; }
+        }
 
         public MapTiles()
         {
@@ -29,8 +42,8 @@ namespace CS427_FinalProject
         private void LoadMapTiles()
         {
             tiles = new List<MapTile>();
-            vSortedTiles = new List<MapTile>();
-            hSortedTiles = new List<MapTile>();
+            vSortedTiles = new List<KeyValuePair<float, List<MapTile>>>();
+            hSortedTiles = new List<KeyValuePair<float, List<MapTile>>>();
 
             XmlDocument doc = new XmlDocument();
             doc.Load(fileName);
@@ -41,49 +54,75 @@ namespace CS427_FinalProject
                 MapTile newTile = LoadTileFromXmlNode(tileNode);
                 tiles.Add(newTile);
                 AddToHSortedTiles(newTile);
-                //AddToVSortedTiles(newTile);
+                AddToVSortedTiles(newTile);
             }
         }
 
         private void AddToVSortedTiles(MapTile newTile)
         {
-            int index = FindIndexSortedTiles(newTile.BoundingBox.Y, this.vSortedTiles, BoundingBoxEdge.X);
-            this.vSortedTiles.Insert(index, newTile);
-            index = FindIndexSortedTiles(newTile.BoundingBox.Z, this.vSortedTiles, BoundingBoxEdge.Z);
-            this.vSortedTiles.Insert(index, newTile);
+            int index = FindIndexSortedTiles(newTile.BoundingBox.X, this.vSortedTiles);
+            if (index != this.vSortedTiles.Count && vSortedTiles[index].Key == newTile.BoundingBox.X)
+                vSortedTiles[index].Value.Add(newTile);
+            else
+            {
+                List<MapTile> tmp = new List<MapTile>();
+                tmp.Add(newTile);
+                this.vSortedTiles.Insert(index, new KeyValuePair<float, List<MapTile>>(newTile.BoundingBox.X, tmp));
+            }
+            index = FindIndexSortedTiles(newTile.BoundingBox.Z, this.vSortedTiles);
+            if (index != this.vSortedTiles.Count && vSortedTiles[index].Key == newTile.BoundingBox.Z)
+                vSortedTiles[index].Value.Add(newTile);
+            else
+            {
+                List<MapTile> tmp = new List<MapTile>();
+                tmp.Add(newTile);
+                this.vSortedTiles.Insert(index, new KeyValuePair<float, List<MapTile>>(newTile.BoundingBox.Z, tmp));
+            }
         }
 
         private void AddToHSortedTiles(MapTile newTile)
         {
-            int index = FindIndexSortedTiles(newTile.BoundingBox.Y, this.hSortedTiles, BoundingBoxEdge.Y);
-            this.hSortedTiles.Insert(index, newTile);
-            index = FindIndexSortedTiles(newTile.BoundingBox.W, this.hSortedTiles, BoundingBoxEdge.W);
-            this.hSortedTiles.Insert(index, newTile);
+            int index = FindIndexSortedTiles(newTile.BoundingBox.Y, this.hSortedTiles);
+            if (index != this.hSortedTiles.Count && hSortedTiles[index].Key == newTile.BoundingBox.Y)
+                hSortedTiles[index].Value.Add(newTile);
+            else
+            {
+                List<MapTile> tmp = new List<MapTile>();
+                tmp.Add(newTile);
+                this.hSortedTiles.Insert(index, new KeyValuePair<float, List<MapTile>>(newTile.BoundingBox.Y, tmp));
+            }
+            index = FindIndexSortedTiles(newTile.BoundingBox.W, this.hSortedTiles);
+            if (index != this.hSortedTiles.Count && hSortedTiles[index].Key == newTile.BoundingBox.W)
+                hSortedTiles[index].Value.Add(newTile);
+            else
+            {
+                List<MapTile> tmp = new List<MapTile>();
+                tmp.Add(newTile);
+                this.hSortedTiles.Insert(index, new KeyValuePair<float, List<MapTile>>(newTile.BoundingBox.W, tmp));
+            }
         }
 
-        private int FindIndexSortedTiles(float key, List<MapTile> list, BoundingBoxEdge boundingBoxEdge)
+        public static int FindIndexSortedTiles(float key, List<KeyValuePair<float, List<MapTile>>> list)
         {
             if (list.Count == 0)
                 return 0;
-            int left, right, pivot;
+            int left, right, mid;
             left = 0;
-            right = list.Count;
-            pivot = (left + right) / 2;
-            list[pivot].CurrentEdge = boundingBoxEdge;
+            right = list.Count - 1;
+            mid = (left + right) / 2;
             while (left <= right)
             {
-                if (list[pivot].CurrentEdgeValue == key)
-                    return pivot;
-                else if (key > list[pivot].CurrentEdgeValue)
-                    left = pivot + 1;
+                mid = (left + right) / 2;
+                if (list[mid].Key == key)
+                    return mid;
+                else if (key > list[mid].Key)
+                    left = mid + 1;
                 else
-                    right = pivot - 1;
-                pivot = (left + right) / 2;
-                list[pivot].CurrentEdge = boundingBoxEdge;
+                    right = mid - 1;
             }
-            if (list[pivot].CurrentEdgeValue < key)
-                return pivot + 1;
-            return pivot;
+            if (list[mid].Key < key)
+                return mid + 1;
+            return mid;
         }
 
         private static MapTile LoadTileFromXmlNode(XmlNode tileNode)
@@ -113,13 +152,5 @@ namespace CS427_FinalProject
             foreach(MapTile tile in this.tiles)
                 tile.Draw(gameTime, param);
         }
-    }
-
-    enum BoundingBoxEdge
-    {
-        X = 0,
-        Y = 1,
-        Z = 2,
-        W = 3
     }
 }
