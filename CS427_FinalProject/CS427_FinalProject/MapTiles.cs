@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Xml;
@@ -129,12 +130,12 @@ namespace CS427_FinalProject
         {
             float height, width, left, top, depth;
             int type;
-            height = float.Parse(tileNode.Attributes["Height"].Value);
-            width = float.Parse(tileNode.Attributes["Width"].Value);
-            left = float.Parse(tileNode.Attributes["Left"].Value);
-            top = float.Parse(tileNode.Attributes["Top"].Value);
-            depth = float.Parse(tileNode.Attributes["Depth"].Value);
-            type = int.Parse(tileNode.Attributes["Type"].Value);
+            height = float.Parse(tileNode.Attributes["Height"].Value.Replace(',', '.'), CultureInfo.InvariantCulture);
+            width = float.Parse(tileNode.Attributes["Width"].Value.Replace(',', '.'), CultureInfo.InvariantCulture);
+            left = float.Parse(tileNode.Attributes["Left"].Value.Replace(',', '.'), CultureInfo.InvariantCulture);
+            top = float.Parse(tileNode.Attributes["Top"].Value.Replace(',', '.'), CultureInfo.InvariantCulture);
+            depth = float.Parse(tileNode.Attributes["Depth"].Value.Replace(',', '.'), CultureInfo.InvariantCulture);
+            type = int.Parse(tileNode.Attributes["Type"].Value.Replace(',', '.'), CultureInfo.InvariantCulture);
             MapTile newTile = new MapTile(height, width, left, top, depth, type);
             return newTile;
         }
