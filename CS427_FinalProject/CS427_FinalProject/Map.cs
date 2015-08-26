@@ -29,36 +29,45 @@ namespace CS427_FinalProject
 
         private float GetBottomDistance(Vector4 boundingBox)
         {
+            float result = 720f - boundingBox.W;
+            if (result < 0)
+                result = 0;
             List<KeyValuePair<float, List<MapTile>>> list = this.mapTiles.HSortedTiles;
             int index = MapTiles.FindIndexSortedTiles(boundingBox.W, list);
             if (index == list.Count)
-                return 720f - boundingBox.W;
+                return result;
             for (int i = index; i < list.Count; ++i)
                 foreach (MapTile tile in list[i].Value)
                     if (IsHorizontalValid(boundingBox, tile) == true)
                         return Math.Abs(list[i].Key - boundingBox.W);
-            return 720f - boundingBox.W;
+            return result;
         }
 
         private float GetRightDistance(Vector4 boundingBox)
         {
+            float result = 1280 - boundingBox.Z;
+            if (result < 0)
+                result = 0;
             List<KeyValuePair<float, List<MapTile>>> list = this.mapTiles.VSortedTiles;
             int index = MapTiles.FindIndexSortedTiles(boundingBox.Z, list);
             if (index == list.Count)
-                return 1280f - boundingBox.Z;               
+                return result;             
             for (int i = index; i < list.Count; ++i)
                 foreach (MapTile tile in list[i].Value)
                     if (IsVerticalValid(boundingBox, tile) == true)
                         return Math.Abs(list[i].Key - boundingBox.Z);
-            return 1280f - boundingBox.Z;               
+            return result;         
         }
 
         private float GetTopDistance(Vector4 boundingBox)
         {
+            float result = boundingBox.Y;
+            if (result < 0)
+                result = 0;
             List<KeyValuePair<float, List<MapTile>>> list = this.mapTiles.HSortedTiles;
             int index = MapTiles.FindIndexSortedTiles(boundingBox.Y, list);
             if (index == list.Count)
-                return boundingBox.Y;
+                return result;
             if (list[index].Key == boundingBox.Y)
                 foreach (MapTile tile in list[index].Value)
                     if (IsHorizontalValid(boundingBox, tile) == true)
@@ -67,7 +76,7 @@ namespace CS427_FinalProject
                 foreach (MapTile tile in list[index].Value)
                     if (IsHorizontalValid(boundingBox, tile) == true)
                         return Math.Abs(list[index].Key - boundingBox.Y);
-            return boundingBox.Y;
+            return result;
         }
 
         private bool IsHorizontalValid(Vector4 boundingBox, MapTile tile)
@@ -76,17 +85,22 @@ namespace CS427_FinalProject
                 return false;
             if ((boundingBox.X > tile.BoundingBox.X && boundingBox.X < tile.BoundingBox.Z)
                 ||
-                (boundingBox.Z > tile.BoundingBox.X && boundingBox.Z < tile.BoundingBox.Z))
+                (boundingBox.Z > tile.BoundingBox.X && boundingBox.Z < tile.BoundingBox.Z)
+                ||
+                (boundingBox.X <= tile.BoundingBox.X && boundingBox.Z >= tile.BoundingBox.Z))
                 return true;
             return false;
         }
 
         private float GetLeftDistance(Vector4 boundingBox)
         {
+            float result = boundingBox.X;
+            if (result < 0)
+                result = 0;
             List<KeyValuePair<float, List<MapTile>>> list = this.mapTiles.VSortedTiles;
             int index = MapTiles.FindIndexSortedTiles(boundingBox.X, list);
             if (index == list.Count)
-                return boundingBox.X;
+                return result;
             if (list[index].Key == boundingBox.X)
                 foreach (MapTile tile in list[index].Value)
                     if (IsVerticalValid(boundingBox, tile) == true)
@@ -95,7 +109,7 @@ namespace CS427_FinalProject
                 foreach (MapTile tile in list[index].Value)
                     if (IsVerticalValid(boundingBox, tile) == true)
                         return Math.Abs(list[index].Key - boundingBox.X);
-            return boundingBox.X;
+            return result;
         }
 
         private bool IsVerticalValid(Vector4 boundingBox, MapTile tile)
@@ -104,7 +118,9 @@ namespace CS427_FinalProject
                 return false;
             if ((boundingBox.Y > tile.BoundingBox.Y && boundingBox.Y < tile.BoundingBox.W)
                 ||
-                (boundingBox.W > tile.BoundingBox.Y && boundingBox.W < tile.BoundingBox.W))
+                (boundingBox.W > tile.BoundingBox.Y && boundingBox.W < tile.BoundingBox.W)
+                ||
+                (boundingBox.Y <= tile.BoundingBox.Y && boundingBox.W >= tile.BoundingBox.W))
                 return true;
             return false;
         }
