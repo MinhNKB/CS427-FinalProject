@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 
@@ -117,19 +118,13 @@ namespace CS427_FinalProject
                 {
                     if (Global.gKeyboardHelper.IsKeyPressed(keyRight))
                     {
-                        if (distances.Z >= 10)
-                            horizontalVelocity = 10;
-                        else
-                            horizontalVelocity = distances.Z;
+                        horizontalVelocity = 1;
                         lastKeyPressed = keyRight;
                         this.reverse = false;
                     }
                     if (Global.gKeyboardHelper.IsKeyPressed(keyLeft))
                     {
-                        if (distances.X >= 10)
-                            horizontalVelocity = -10;
-                        else
-                            horizontalVelocity = -distances.X;
+                        horizontalVelocity = -1;
                         lastKeyPressed = keyLeft;
                         this.reverse = true;
                     }
@@ -146,10 +141,18 @@ namespace CS427_FinalProject
                             verticalVelocity = 15;
                         }                     
                     }
+                    if (this.currentState != CharacterState.Jump && this.currentState != CharacterState.Fall && distances.W > 0)
+                        this.CurrentState = CharacterState.Fall;
                     if (this.currentState == CharacterState.Fall)
                     {
-                        jumpHeight += verticalVelocity;
-                        if(jumpHeight>=150)
+                        if(distances.W>0)
+                        {
+                            if (distances.W >= 15)
+                                verticalVelocity = 15;
+                            else
+                                verticalVelocity = distances.W;
+                        }
+                        else
                         {
                             this.CurrentState = CharacterState.Idle;
                             if (Global.gKeyboardHelper.IsKeyDown(lastKeyPressed))
@@ -161,7 +164,7 @@ namespace CS427_FinalProject
                                     this.reverse = false;
                             }
                             verticalVelocity = 0;
-                        }                    
+                        }                                       
                     }
                     if (currentState != CharacterState.Jump && currentState != CharacterState.Fall)
                     {
@@ -178,7 +181,12 @@ namespace CS427_FinalProject
                         }
                     }
                 }
-                this.ActualLeft += horizontalVelocity;
+                float temp = 15;
+                if (distances.X < 15 && horizontalVelocity == -1)
+                    temp = distances.X;
+                else if (distances.Z < 15 && horizontalVelocity == 1)
+                    temp = distances.Z;                
+                this.ActualLeft += horizontalVelocity*temp;
                 this.ActualBottom += verticalVelocity;
                 this.characterSprites[this.CurrentState].Reverse = this.reverse;
                 this.characterSprites[this.CurrentState].Left = this.left;
