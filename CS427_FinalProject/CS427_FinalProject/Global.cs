@@ -12,7 +12,7 @@ namespace CS427_FinalProject
         public static MouseHelper gMousetHelper = new MouseHelper();
         public static ViewState gViewState;
         public static ContentManager gContent;
-
+        public static Map gMap;
         public static void UpdateAll(Microsoft.Xna.Framework.GameTime gameTime)
         {            
             gKeyboardHelper.Update(gameTime);

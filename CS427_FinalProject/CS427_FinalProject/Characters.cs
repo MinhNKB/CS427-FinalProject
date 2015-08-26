@@ -31,7 +31,7 @@ namespace CS427_FinalProject
         {
             LoadCharacters();
             characters[0].Spawn(0, 592);
-            characters[1].Spawn(500, 592);
+            characters[1].Spawn(0, 592);
         }
 
         private void LoadCharacters()
@@ -46,6 +46,8 @@ namespace CS427_FinalProject
             base.Update(gameTime);
             for (int i = 0; i < characters.Count; ++i)
                 characters[i].Update(gameTime);
+            if (Global.gKeyboardHelper.IsKeyPressed(Microsoft.Xna.Framework.Input.Keys.S))
+                characters[0].CurrentState = CharacterState.Dead;
         }
 
         public override void Draw(GameTime gameTime, object param)
