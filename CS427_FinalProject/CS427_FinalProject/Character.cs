@@ -48,7 +48,7 @@ namespace CS427_FinalProject
 
         public Vector4 BoundingBox
         {
-            get { return new Vector4(actualLeft,actualBottom-actualHeight,actualLeft+actualWidth,actualBottom); }            
+            get { return new Vector4(actualLeft + 15, actualBottom - actualHeight, actualLeft + actualWidth - 15, actualBottom); }            
         }
 
         private CharacterState currentState;
@@ -141,6 +141,16 @@ namespace CS427_FinalProject
                             verticalVelocity = 15;
                         }                     
                     }
+
+                    float temp = 15;
+                    if (distances.X < 15 && horizontalVelocity == -1)
+                        temp = distances.X;
+                    else if (distances.Z < 15 && horizontalVelocity == 1)
+                        temp = distances.Z;
+                    this.ActualLeft += horizontalVelocity * temp;
+
+                    this.Distances = Global.gMap.GetDistance(this.BoundingBox);
+
                     if (this.currentState != CharacterState.Jump && this.currentState != CharacterState.Fall && distances.W > 0)
                         this.CurrentState = CharacterState.Fall;
                     if (this.currentState == CharacterState.Fall)
@@ -180,14 +190,13 @@ namespace CS427_FinalProject
                             jumpHeight += verticalVelocity;
                         }
                     }
+                    this.ActualBottom += verticalVelocity;
                 }
-                float temp = 15;
-                if (distances.X < 15 && horizontalVelocity == -1)
-                    temp = distances.X;
-                else if (distances.Z < 15 && horizontalVelocity == 1)
-                    temp = distances.Z;                
-                this.ActualLeft += horizontalVelocity*temp;
-                this.ActualBottom += verticalVelocity;
+                else
+                {
+
+                }
+                
                 this.characterSprites[this.CurrentState].Reverse = this.reverse;
                 this.characterSprites[this.CurrentState].Left = this.left;
                 this.characterSprites[this.CurrentState].Top = this.top;

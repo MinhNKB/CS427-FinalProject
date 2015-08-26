@@ -16,8 +16,9 @@ namespace CS427_FinalProject
         {
             this.background = new Background();
             this.mapTiles = new MapTiles();
+            Global.gMap = this;
         }
-        private Vector4 GetDistance(Vector4 boundingBox)
+        public Vector4 GetDistance(Vector4 boundingBox)
         {
             Vector4 result = new Vector4();
             result.X = GetLeftDistance(boundingBox);
