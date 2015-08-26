@@ -11,6 +11,15 @@ namespace CS427_FinalProject
 {
     class Character : VisibleGameEntity
     {
+        public event EventHandler Respawn;
+        private void OnRespawn()
+        {
+            if(Respawn!=null)
+            {
+                Respawn(this, new EventArgs());
+            }
+        }
+
         protected Dictionary<CharacterState,Sprite2D> characterSprites;
 
         protected int actualWidth = 60, actualHeight = 90;
@@ -21,6 +30,7 @@ namespace CS427_FinalProject
         protected Keys keyUp, keyDown, keyLeft, keyRight;
         protected float jumpHeight;
         protected Vector4 distances;
+        protected int delayRespawn;
 
         public Vector4 Distances
         {
@@ -68,8 +78,12 @@ namespace CS427_FinalProject
                 else 
                 {
                     paddingLeft = 20;
-                    paddingTop = 3;
-                   
+                    paddingTop = 3;                   
+                }
+                if(currentState == CharacterState.Jump)
+                {
+                    jumpHeight = 150;
+                    verticalVelocity = -15;
                 }
                 
             }
@@ -107,6 +121,7 @@ namespace CS427_FinalProject
             this.currentState = CharacterState.Idle;
             this.verticalVelocity = 0;
             this.horizontalVelocity = 0;
+            this.delayRespawn = 20;
         }
 
         public override void Update(GameTime gameTime)
@@ -184,19 +199,33 @@ namespace CS427_FinalProject
                             this.CurrentState = CharacterState.Idle;
                         if (Global.gKeyboardHelper.IsKeyDown(keyUp))
                         {
-                            this.CurrentState = CharacterState.Jump;
-                            jumpHeight = 150;
-                            verticalVelocity = -15;
-                            jumpHeight += verticalVelocity;
+                            this.CurrentState = CharacterState.Jump;                                                       
                         }
-                    }
-                    this.ActualBottom += verticalVelocity;
+                    }                    
                 }
                 else
                 {
-
+                    if (distances.W >= 15)
+                        verticalVelocity = 15;
+                    else
+                        verticalVelocity = distances.W;    
+                    if(verticalVelocity==0)
+                    {
+                        if(delayRespawn--==0)
+                            OnRespawn();
+                    }
                 }
-                
+   
+
+                if (this.ActualBottom == 720)
+                    this.CurrentState = CharacterState.Dead;
+
+                if (this.ActualBottom > 720 - 128)
+                    this.characterSprites[this.CurrentState].Depth = 0.05f;
+                else
+                    this.characterSprites[this.CurrentState].Depth = 1;
+
+                this.ActualBottom += verticalVelocity;    
                 this.characterSprites[this.CurrentState].Reverse = this.reverse;
                 this.characterSprites[this.CurrentState].Left = this.left;
                 this.characterSprites[this.CurrentState].Top = this.top;

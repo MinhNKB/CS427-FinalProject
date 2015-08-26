@@ -39,15 +39,42 @@ namespace CS427_FinalProject
             characters = new List<Character>();
             characters.Add(new Dog());
             characters.Add(new Cat());
+            foreach(Character c in characters)
+                c.Respawn += c_Respawn;
+        }
+
+        void c_Respawn(object sender, EventArgs e)
+        {
+            (sender as Character).Spawn(0, 592);
         }
 
         public override void Update(GameTime gameTime)
         {
-            base.Update(gameTime);
-            for (int i = 0; i < characters.Count; ++i)
-                characters[i].Update(gameTime);
+            base.Update(gameTime);            
             if (Global.gKeyboardHelper.IsKeyPressed(Microsoft.Xna.Framework.Input.Keys.S))
                 characters[0].CurrentState = CharacterState.Dead;
+            CheckKill();
+            for (int i = 0; i < characters.Count; ++i)
+                characters[i].Update(gameTime);
+           
+        }
+
+        private void CheckKill()
+        {
+            foreach(Character c1 in characters)
+            {
+                foreach(Character c2 in characters)
+                {
+                    if (c1.BoundingBox.W >= c2.BoundingBox.Y - 10 && c1.BoundingBox.W <= c2.BoundingBox.Y + 10 && c1.CurrentState == CharacterState.Fall && c2.CurrentState != CharacterState.Dead)
+                    {
+                        if((c1.BoundingBox.X >= c2.BoundingBox.X && c1.BoundingBox.X <=c2.BoundingBox.Z) || (c1.BoundingBox.Z >= c2.BoundingBox.X && c1.BoundingBox.Z <=c2.BoundingBox.Z))
+                        {
+                            c2.CurrentState = CharacterState.Dead;
+                            c1.CurrentState = CharacterState.Jump;
+                        }
+                    }
+                }
+            }
         }
 
         public override void Draw(GameTime gameTime, object param)
