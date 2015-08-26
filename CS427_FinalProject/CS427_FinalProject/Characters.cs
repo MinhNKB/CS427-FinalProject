@@ -46,6 +46,8 @@ namespace CS427_FinalProject
         void c_Respawn(object sender, EventArgs e)
         {
             (sender as Character).Spawn(0, 592);
+            if ((sender as Dog) != null)
+                (sender as Character).CurrentEffect = SpecialEffect.Haste;
         }
 
         public override void Update(GameTime gameTime)

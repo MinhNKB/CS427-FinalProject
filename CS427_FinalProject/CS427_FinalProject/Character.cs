@@ -24,13 +24,14 @@ namespace CS427_FinalProject
 
         protected int actualWidth = 60, actualHeight = 90;
         protected float actualBottom, actualLeft, paddingLeft, paddingTop, left, top;
-        protected float horizontalVelocity, verticalVelocity;
+        protected float horizontalDirection, verticalVelocity;
         protected Keys lastKeyPressed = Keys.None;
         protected bool reverse = false;
         protected Keys keyUp, keyDown, keyLeft, keyRight;
         protected float jumpHeight;
         protected Vector4 distances;
-        protected int delayRespawn;
+        protected int delayRespawn, effectDuration;
+        protected int hasteFactor = 1;
 
         public Vector4 Distances
         {
@@ -82,7 +83,10 @@ namespace CS427_FinalProject
                 }
                 if(currentState == CharacterState.Jump)
                 {
-                    jumpHeight = 150;
+                    if (this.currentEffect == SpecialEffect.DoubleJump)
+                        jumpHeight = 250;
+                    else
+                        jumpHeight = 150;
                     verticalVelocity = -15;
                 }
                 
@@ -94,7 +98,11 @@ namespace CS427_FinalProject
         public SpecialEffect CurrentEffect
         {
             get { return currentEffect; }
-            set { currentEffect = value; }
+            set { 
+                currentEffect = value;
+                if (currentEffect != SpecialEffect.None)
+                    this.effectDuration = 150;
+            }
         }
 
         public Character()
@@ -120,8 +128,8 @@ namespace CS427_FinalProject
             this.ActualBottom = bottom;
             this.currentState = CharacterState.Idle;
             this.verticalVelocity = 0;
-            this.horizontalVelocity = 0;
-            this.delayRespawn = 20;
+            this.horizontalDirection = 0;
+            this.delayRespawn = 20;            
         }
 
         public override void Update(GameTime gameTime)
@@ -131,21 +139,41 @@ namespace CS427_FinalProject
             {
                 if (currentState != CharacterState.Dead)
                 {
+                    float basicHorizontalVelocity;
+
+                    if (currentEffect == SpecialEffect.Haste)
+                        basicHorizontalVelocity = 25;
+                    else
+                        basicHorizontalVelocity = 15;
+
+                    Keys keyRight, keyLeft;
+                    if(currentEffect == SpecialEffect.Reverse)
+                    {
+                        keyRight = this.keyLeft;
+                        keyLeft = this.keyRight;
+                    }
+                    else
+                    {
+                        keyRight = this.keyRight;
+                        keyLeft = this.keyLeft;
+                    }
+
                     if (Global.gKeyboardHelper.IsKeyPressed(keyRight))
                     {
-                        horizontalVelocity = 1;
+                        horizontalDirection = 1;
                         lastKeyPressed = keyRight;
                         this.reverse = false;
                     }
                     if (Global.gKeyboardHelper.IsKeyPressed(keyLeft))
                     {
-                        horizontalVelocity = -1;
+                        horizontalDirection = -1;
                         lastKeyPressed = keyLeft;
                         this.reverse = true;
-                    }
+                    }                   
+
                     if (Global.gKeyboardHelper.IsKeyReleased(lastKeyPressed))
                     {
-                        horizontalVelocity = 0;                        
+                        horizontalDirection = 0;                        
                     }                    
                     if (this.currentState == CharacterState.Jump)
                     {
@@ -157,12 +185,11 @@ namespace CS427_FinalProject
                         }                     
                     }
 
-                    float temp = 15;
-                    if (distances.X < 15 && horizontalVelocity == -1)
-                        temp = distances.X;
-                    else if (distances.Z < 15 && horizontalVelocity == 1)
-                        temp = distances.Z;
-                    this.ActualLeft += horizontalVelocity * temp;
+                    if (distances.X < basicHorizontalVelocity && horizontalDirection == -1)
+                        basicHorizontalVelocity = distances.X;
+                    else if (distances.Z < basicHorizontalVelocity && horizontalDirection == 1)
+                        basicHorizontalVelocity = distances.Z;
+                    this.ActualLeft += horizontalDirection * basicHorizontalVelocity;
 
                     this.Distances = Global.gMap.GetDistance(this.BoundingBox);
 
@@ -197,7 +224,7 @@ namespace CS427_FinalProject
                             this.CurrentState = CharacterState.Run;
                         if(Global.gKeyboardHelper.IsKeyReleased(lastKeyPressed))
                             this.CurrentState = CharacterState.Idle;
-                        if (Global.gKeyboardHelper.IsKeyDown(keyUp))
+                        if (Global.gKeyboardHelper.IsKeyPressed(keyUp) && this.currentEffect != SpecialEffect.NoJump)
                         {
                             this.CurrentState = CharacterState.Jump;                                                       
                         }
@@ -230,6 +257,10 @@ namespace CS427_FinalProject
                 this.characterSprites[this.CurrentState].Left = this.left;
                 this.characterSprites[this.CurrentState].Top = this.top;
                 this.characterSprites[this.CurrentState].Update(gameTime);
+                if(this.effectDuration--==0)
+                {
+                    this.CurrentEffect = SpecialEffect.None;
+                }
             }
         }
 
