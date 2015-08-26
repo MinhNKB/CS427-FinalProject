@@ -83,23 +83,26 @@ namespace CS427_FinalProject
 
         private void AddToHSortedTiles(MapTile newTile)
         {
-            int index = FindIndexSortedTiles(newTile.BoundingBox.Y, this.hSortedTiles);
-            if (index != this.hSortedTiles.Count && hSortedTiles[index].Key == newTile.BoundingBox.Y)
-                hSortedTiles[index].Value.Add(newTile);
-            else
+            if (newTile.Type == 0 || newTile.Type == 1 || newTile.Type == 2 || newTile.Type == 6 || newTile.Type == 10 || newTile.Type == 12 || newTile.Type == 13 || newTile.Type == 14)
             {
-                List<MapTile> tmp = new List<MapTile>();
-                tmp.Add(newTile);
-                this.hSortedTiles.Insert(index, new KeyValuePair<float, List<MapTile>>(newTile.BoundingBox.Y, tmp));
-            }
-            index = FindIndexSortedTiles(newTile.BoundingBox.W, this.hSortedTiles);
-            if (index != this.hSortedTiles.Count && hSortedTiles[index].Key == newTile.BoundingBox.W)
-                hSortedTiles[index].Value.Add(newTile);
-            else
-            {
-                List<MapTile> tmp = new List<MapTile>();
-                tmp.Add(newTile);
-                this.hSortedTiles.Insert(index, new KeyValuePair<float, List<MapTile>>(newTile.BoundingBox.W, tmp));
+                int index = FindIndexSortedTiles(newTile.BoundingBox.Y, this.hSortedTiles);
+                if (index != this.hSortedTiles.Count && hSortedTiles[index].Key == newTile.BoundingBox.Y)
+                    hSortedTiles[index].Value.Add(newTile);
+                else
+                {
+                    List<MapTile> tmp = new List<MapTile>();
+                    tmp.Add(newTile);
+                    this.hSortedTiles.Insert(index, new KeyValuePair<float, List<MapTile>>(newTile.BoundingBox.Y, tmp));
+                }
+                index = FindIndexSortedTiles(newTile.BoundingBox.W, this.hSortedTiles);
+                if (index != this.hSortedTiles.Count && hSortedTiles[index].Key == newTile.BoundingBox.W)
+                    hSortedTiles[index].Value.Add(newTile);
+                else
+                {
+                    List<MapTile> tmp = new List<MapTile>();
+                    tmp.Add(newTile);
+                    this.hSortedTiles.Insert(index, new KeyValuePair<float, List<MapTile>>(newTile.BoundingBox.W, tmp));
+                }
             }
         }
 

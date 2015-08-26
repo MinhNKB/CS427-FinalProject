@@ -25,11 +25,20 @@ namespace CS427_FinalProject
             set { boundingBox = value; }
         }
 
+        private int type;
+
+        public int Type
+        {
+            get { return type; }
+            set { type = value; }
+        }
+
         public MapTile(float height, float width, float left, float top, float depth, int type)
         {
             this.sprite2D = new Sprite2D(TextureFactory.mapTileTextures[type], left, top, 0, 0);
             this.sprite2D.Depth = depth;
             this.boundingBox = new Vector4(left, top, left + width, top + height);
+            this.type = type;
         }
 
         public override void Update(GameTime gameTime)

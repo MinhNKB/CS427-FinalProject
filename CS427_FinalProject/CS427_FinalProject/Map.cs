@@ -81,9 +81,9 @@ namespace CS427_FinalProject
 
         private bool IsHorizontalValid(Vector4 boundingBox, MapTile tile)
         {
-            if ((boundingBox.X > tile.BoundingBox.X && boundingBox.X < tile.BoundingBox.Z)
+            if ((boundingBox.X > tile.BoundingBox.X && boundingBox.X < tile.BoundingBox.Z + 5)
                 ||
-                (boundingBox.Z > tile.BoundingBox.X && boundingBox.Z < tile.BoundingBox.Z)
+                (boundingBox.Z > tile.BoundingBox.X - 5 && boundingBox.Z < tile.BoundingBox.Z)
                 ||
                 (boundingBox.X <= tile.BoundingBox.X && boundingBox.Z >= tile.BoundingBox.Z))
                 return true;
