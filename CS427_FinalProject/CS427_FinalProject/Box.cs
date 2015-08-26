@@ -45,7 +45,7 @@ namespace CS427_FinalProject
         {
             this.sprite2D = new Sprite2D(TextureFactory.boxTexture, left, top - TextureFactory.boxTexture[0].Height, 0, 0);
             this.sprite2D.Depth = depth;
-            this.boundingBox = new Vector4(left, top, left + this.sprite2D.Width, top + this.sprite2D.Height);
+            this.boundingBox = new Vector4(left, top - this.sprite2D.Height, left + this.sprite2D.Width, top);
             this.effect = (SpecialEffect)effect;
             this.isVisible = true;
         }

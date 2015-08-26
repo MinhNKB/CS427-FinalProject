@@ -147,8 +147,30 @@ namespace CS427_FinalProject
 
         private SpecialEffect GetEffect(Vector4 boundingBox)
         {
-            //need to be changed
+            if (IsBoxValid() && AbleToGetBox(boundingBox))
+            {
+                this.box.IsVisible = false;
+                this.lastCreatedBoxTime = DateTime.Now;
+                return this.box.Effect;
+            }
             return SpecialEffect.None;
+        }
+
+        private bool AbleToGetBox(Vector4 boundingBox)
+        {
+            if ((boundingBox.W <= this.box.BoundingBox.Y && boundingBox.W >= this.box.BoundingBox.Y - 10))
+                if ((boundingBox.X > box.BoundingBox.X && boundingBox.X < box.BoundingBox.Z)
+                    ||
+                    (boundingBox.Z > box.BoundingBox.X && boundingBox.Z < box.BoundingBox.Z)
+                    ||
+                    (boundingBox.X <= box.BoundingBox.X && boundingBox.Z >= box.BoundingBox.Z))
+                        return true;
+            return false;
+        }
+
+        private bool IsBoxValid()
+        {
+            return this.box.IsVisible;
         }
 
         public List<SpecialEffect> GetEffects(List<Vector4> boudingBoxes)
