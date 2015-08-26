@@ -94,15 +94,6 @@ namespace CS427_FinalProject
                     tmp.Add(newTile);
                     this.hSortedTiles.Insert(index, new KeyValuePair<float, List<MapTile>>(newTile.BoundingBox.Y, tmp));
                 }
-                index = FindIndexSortedTiles(newTile.BoundingBox.W, this.hSortedTiles);
-                if (index != this.hSortedTiles.Count && hSortedTiles[index].Key == newTile.BoundingBox.W)
-                    hSortedTiles[index].Value.Add(newTile);
-                else
-                {
-                    List<MapTile> tmp = new List<MapTile>();
-                    tmp.Add(newTile);
-                    this.hSortedTiles.Insert(index, new KeyValuePair<float, List<MapTile>>(newTile.BoundingBox.W, tmp));
-                }
             }
         }
 
