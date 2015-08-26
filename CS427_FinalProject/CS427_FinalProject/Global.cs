@@ -18,7 +18,5 @@ namespace CS427_FinalProject
             gKeyboardHelper.Update(gameTime);
             gMousetHelper.Update(gameTime);
         }
-
-
     }
 }

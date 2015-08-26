@@ -122,15 +122,13 @@ namespace CS427_FinalProject
 
         private static MapTile LoadTileFromXmlNode(XmlNode tileNode)
         {
-            float height, width, left, top, depth;
+            float left, top, depth;
             int type;
-            height = float.Parse(tileNode.Attributes["Height"].Value.Replace(',', '.'), CultureInfo.InvariantCulture);
-            width = float.Parse(tileNode.Attributes["Width"].Value.Replace(',', '.'), CultureInfo.InvariantCulture);
             left = float.Parse(tileNode.Attributes["Left"].Value.Replace(',', '.'), CultureInfo.InvariantCulture);
             top = float.Parse(tileNode.Attributes["Top"].Value.Replace(',', '.'), CultureInfo.InvariantCulture);
             depth = float.Parse(tileNode.Attributes["Depth"].Value.Replace(',', '.'), CultureInfo.InvariantCulture);
             type = int.Parse(tileNode.Attributes["Type"].Value.Replace(',', '.'), CultureInfo.InvariantCulture);
-            MapTile newTile = new MapTile(height, width, left, top, depth, type);
+            MapTile newTile = new MapTile(left, top, depth, type);
             return newTile;
         }
 
