@@ -112,7 +112,7 @@ namespace CS427_FinalProject
 
         private bool IsVerticalValid(Vector4 boundingBox, MapTile tile)
         {
-            if (tile.Sprite2D.Depth == 0.1f)
+            if (tile.Sprite2D.Depth == 0.2f)
                 return false;
             if ((boundingBox.Y > tile.BoundingBox.Y && boundingBox.Y < tile.BoundingBox.W)
                 ||
@@ -145,6 +145,12 @@ namespace CS427_FinalProject
             return result;
         }
 
+        private Random rand = new Random();
+        public Vector2 GetSpawnPosition()
+        {
+            return new Vector2();
+        }
+
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
@@ -159,6 +165,5 @@ namespace CS427_FinalProject
             this.background.Draw(gameTime, param);
             this.mapTiles.Draw(gameTime, param);
         }
-
     }
 }
