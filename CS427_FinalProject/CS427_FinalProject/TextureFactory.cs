@@ -11,18 +11,27 @@ namespace CS427_FinalProject
         Cat = 0,
         Dog = 1
     }
+
     class TextureFactory
     {
         public static Dictionary<CharacterTexture, Dictionary<CharacterState, List<Texture2D>>> characterTextures;
 
         public static List<Texture2D> backgroundTexture;
         public static List<List<Texture2D>> mapTileTextures;
+        public static List<Texture2D> boxTexture;
 
         public static void Load()
         {
             LoadBackgroundTexture();
             LoadCharacterTextures();
             LoadMapTileTextures();
+            LoadBoxTexture();
+        }
+
+        private static void LoadBoxTexture()
+        {
+            boxTexture = new List<Texture2D>();
+            boxTexture.Add(Global.gContent.Load<Texture2D>(@"Textures\Maps\Forrest\Box\Box_00"));
         }
 
         private static void LoadMapTileTextures()

@@ -12,12 +12,25 @@ namespace CS427_FinalProject
 
         private MapTiles mapTiles;
 
+        private Box box;
+
         public Map()
         {
             this.background = new Background();
             this.mapTiles = new MapTiles();
+            CreateBox();
             Global.gMap = this;
         }
+
+        DateTime lastCreatedBoxTime;
+        private void CreateBox()
+        {
+            int effect = rand.Next(1, 5);
+            Vector2 position = GetSpawnPosition();
+            box = new Box(position.X, position.Y, 0.4f, effect);
+            this.lastCreatedBoxTime = DateTime.Now;
+        }
+
         public Vector4 GetDistance(Vector4 boundingBox)
         {
             Vector4 result = new Vector4();
@@ -149,7 +162,10 @@ namespace CS427_FinalProject
         private Random rand = new Random();
         public Vector2 GetSpawnPosition()
         {
-            return new Vector2();
+            int index00 = rand.Next(0, this.mapTiles.HSortedTiles.Count);
+            int index01 = rand.Next(0, this.mapTiles.HSortedTiles[index00].Value.Count);
+            MapTile spawnTile = this.mapTiles.HSortedTiles[index00].Value[index01];
+            return new Vector2(spawnTile.BoundingBox.X, spawnTile.BoundingBox.Y);
         }
 
         public override void Update(GameTime gameTime)
@@ -157,7 +173,15 @@ namespace CS427_FinalProject
             base.Update(gameTime);
             this.background.Update(gameTime);
             this.mapTiles.Update(gameTime);
+            CreateNextBox();
+            this.box.Update(gameTime);
+        }
 
+        private void CreateNextBox()
+        {
+            DateTime cur = DateTime.Now;
+            if ((cur - this.lastCreatedBoxTime).Seconds >= 6)
+                CreateBox();
         }
 
         public override void Draw(GameTime gameTime, object param)
@@ -165,6 +189,7 @@ namespace CS427_FinalProject
             base.Draw(gameTime, param);
             this.background.Draw(gameTime, param);
             this.mapTiles.Draw(gameTime, param);
+            this.box.Draw(gameTime, param);
         }
     }
 }
