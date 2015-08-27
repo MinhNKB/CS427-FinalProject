@@ -594,10 +594,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Textures\Maps\Forrest\Decor\Decor_00.png">
-      <Name>Decor_00</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
+    <Compile Include="DefaultMediumFont.spritefont">
+      <Name>DefaultMediumFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
     </Compile>
     <Compile Include="Textures\Maps\Forrest\Decor\Decor_01.png">
       <Name>Decor_01</Name>
