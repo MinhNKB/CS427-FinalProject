@@ -150,7 +150,7 @@ namespace CS427_FinalProject
 
         public SpecialEffect GetEffect(Vector4 boundingBox)
         {
-            if (IsBoxValid() && AbleToGetBox(boundingBox))
+            if (IsBoxValid() && IsAbleToGetBox(boundingBox))
             {
                 this.box.IsVisible = false;
                 this.lastCreatedBoxTime = DateTime.Now;
@@ -159,9 +159,9 @@ namespace CS427_FinalProject
             return SpecialEffect.None;
         }
 
-        private bool AbleToGetBox(Vector4 boundingBox)
+        private bool IsAbleToGetBox(Vector4 boundingBox)
         {
-            if ((boundingBox.W <= this.box.BoundingBox.Y && boundingBox.W >= this.box.BoundingBox.Y - 10))
+            if ((boundingBox.W <= this.box.BoundingBox.Y + 20 && boundingBox.W >= this.box.BoundingBox.Y))
                 if ((boundingBox.X > box.BoundingBox.X && boundingBox.X < box.BoundingBox.Z)
                     ||
                     (boundingBox.Z > box.BoundingBox.X && boundingBox.Z < box.BoundingBox.Z)
