@@ -81,6 +81,7 @@
     <Compile Include="Character.cs" />
     <Compile Include="Characters.cs" />
     <Compile Include="CharacterState.cs" />
+    <Compile Include="EffectNotification.cs" />
     <Compile Include="GameEntity.cs" />
     <Compile Include="GameHandler.cs" />
     <Compile Include="GameViewHandler.cs" />
