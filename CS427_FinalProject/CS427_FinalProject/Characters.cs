@@ -11,6 +11,12 @@ namespace CS427_FinalProject
     {
         private List<Character> characters;
 
+        internal List<Character> ListCharacters
+        {
+            get { return characters; }
+            set { characters = value; }
+        }
+
         public List<Vector4> BoundingBoxes
         {
             get
@@ -65,6 +71,7 @@ namespace CS427_FinalProject
                     SpecialEffect effect = Global.gMap.GetEffect(c.BoundingBox);
                     if (effect != SpecialEffect.None)
                     {
+                        c.CurrentState = CharacterState.Jump;
                         if(effect!= SpecialEffect.NoJump)
                             c.CurrentEffect = effect;
                         else
@@ -91,12 +98,13 @@ namespace CS427_FinalProject
             {
                 foreach(Character c2 in characters)
                 {
-                    if (c1.BoundingBox.W >= c2.BoundingBox.Y - 10 && c1.BoundingBox.W <= c2.BoundingBox.Y + 10 && c1.CurrentState == CharacterState.Fall && c2.CurrentState != CharacterState.Dead)
+                    if (c1 != c2 && c1.BoundingBox.W >= c2.BoundingBox.Y && c1.BoundingBox.W <= c2.BoundingBox.Y + 45 && c1.CurrentState == CharacterState.Fall && c2.CurrentState != CharacterState.Dead && c2.CurrentEffect != SpecialEffect.Immortal)
                     {
                         if((c1.BoundingBox.X >= c2.BoundingBox.X && c1.BoundingBox.X <=c2.BoundingBox.Z) || (c1.BoundingBox.Z >= c2.BoundingBox.X && c1.BoundingBox.Z <=c2.BoundingBox.Z))
                         {
                             c2.CurrentState = CharacterState.Dead;
                             c1.CurrentState = CharacterState.Jump;
+                            c1.Point++;
                         }
                     }
                 }

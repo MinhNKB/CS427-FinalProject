@@ -27,12 +27,18 @@ namespace CS427_FinalProject
         protected float horizontalDirection, verticalVelocity;
         protected Keys lastKeyPressed = Keys.None;
         protected bool reverse = false;
-        protected Keys keyUp, keyDown, keyLeft, keyRight;
-        protected float jumpHeight;
+        protected Keys keyUp, keyDown, keyLeft, keyRight;        
         protected Vector4 distances;
         protected int delayRespawn, effectDuration;
         protected int hasteFactor = 1;
         protected int gravityAcceleration = 3;
+        private int point;
+
+        public int Point
+        {
+            get { return point; }
+            set { point = value; }
+        }
 
         public Vector4 Distances
         {
@@ -100,7 +106,9 @@ namespace CS427_FinalProject
             get { return currentEffect; }
             set { 
                 currentEffect = value;
-                if (currentEffect != SpecialEffect.None)
+                if (currentEffect == SpecialEffect.Immortal)
+                    this.effectDuration = 40;
+                else if (currentEffect != SpecialEffect.None)
                     this.effectDuration = 150;
             }
         }
@@ -108,7 +116,7 @@ namespace CS427_FinalProject
         public Character()
         {            
             this.characterSprites = new Dictionary<CharacterState, Sprite2D>();
-            this.CurrentState = CharacterState.Idle;
+            this.point = 0;
         }
 
         protected void LoadSprites(CharacterTexture type)
@@ -127,10 +135,10 @@ namespace CS427_FinalProject
             this.ActualLeft = left;
             this.ActualBottom = bottom;
             this.currentState = CharacterState.Idle;
-            this.CurrentEffect = SpecialEffect.None;
+            this.CurrentEffect = SpecialEffect.Immortal;
             this.verticalVelocity = 0;
             this.horizontalDirection = 0;
-            this.delayRespawn = 20;            
+            this.delayRespawn = 30;            
         }
 
         public override void Update(GameTime gameTime)
@@ -250,10 +258,13 @@ namespace CS427_FinalProject
                             OnRespawn();
                     }
                 }
-   
 
-                if (this.ActualBottom == 720)
+
+                if (this.ActualBottom == 720 && this.CurrentState != CharacterState.Dead)
+                {
                     this.CurrentState = CharacterState.Dead;
+                    this.point--;
+                }
 
                 if (this.ActualBottom > 720 - 128)
                     this.characterSprites[this.CurrentState].Depth = 0.05f;
@@ -275,6 +286,8 @@ namespace CS427_FinalProject
         public override void Draw(GameTime gameTime, object param)
         {
             base.Draw(gameTime, param);
+            if (currentEffect == SpecialEffect.Immortal && effectDuration % 7 == 0)
+                return;
             if (currentState != CharacterState.None)
             {
                 this.characterSprites[this.CurrentState].Draw(gameTime, (SpriteBatch)param);
