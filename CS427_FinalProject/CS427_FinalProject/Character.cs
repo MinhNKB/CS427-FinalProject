@@ -32,6 +32,7 @@ namespace CS427_FinalProject
         protected Vector4 distances;
         protected int delayRespawn, effectDuration;
         protected int hasteFactor = 1;
+        protected int gravityAcceleration = 3;
 
         public Vector4 Distances
         {
@@ -83,11 +84,10 @@ namespace CS427_FinalProject
                 }
                 if(currentState == CharacterState.Jump)
                 {
-                    if (this.currentEffect == SpecialEffect.DoubleJump)
-                        jumpHeight = 250;
+                    if (this.CurrentEffect != SpecialEffect.DoubleJump)
+                        verticalVelocity = -28;
                     else
-                        jumpHeight = 150;
-                    verticalVelocity = -15;
+                        verticalVelocity = -35;
                 }
                 
             }
@@ -172,17 +172,25 @@ namespace CS427_FinalProject
                         this.reverse = true;
                     }                   
 
+                    if(Global.gKeyboardHelper.IsKeyPressed(keyDown))
+                    {
+                        if(this.Distances.W==0)
+                        {
+                            if (Global.gMap.HasNextBottomEdge(this.BoundingBox))
+                                verticalVelocity = 1;
+                        }
+                    }
+
                     if (Global.gKeyboardHelper.IsKeyReleased(lastKeyPressed))
                     {
                         horizontalDirection = 0;                        
                     }                    
                     if (this.currentState == CharacterState.Jump)
                     {
-                        jumpHeight += verticalVelocity;
-                        if(jumpHeight<=0)
+                        verticalVelocity += gravityAcceleration;
+                        if (verticalVelocity >= 0)
                         {
-                            this.CurrentState = CharacterState.Fall;
-                            verticalVelocity = 15;
+                            this.CurrentState = CharacterState.Fall;                            
                         }                     
                     }
 
@@ -200,10 +208,9 @@ namespace CS427_FinalProject
                     {
                         if(distances.W>0)
                         {
-                            if (distances.W >= 15)
-                                verticalVelocity = 15;
-                            else
-                                verticalVelocity = distances.W;
+                            verticalVelocity += gravityAcceleration;
+                            if (distances.W < verticalVelocity)
+                                verticalVelocity = distances.W;                           
                         }
                         else
                         {
@@ -227,7 +234,7 @@ namespace CS427_FinalProject
                             this.CurrentState = CharacterState.Idle;
                         if (Global.gKeyboardHelper.IsKeyPressed(keyUp) && this.currentEffect != SpecialEffect.NoJump)
                         {
-                            this.CurrentState = CharacterState.Jump;                                                       
+                            this.CurrentState = CharacterState.Jump;                                      
                         }
                     }                    
                 }
