@@ -83,6 +83,41 @@
 			<Tile Left="1152" Top="606" Depth="0.1" Type="16"></Tile>
 			<Tile Left="1088" Top="606" Depth="0.1" Type="16"></Tile>
 			<Tile Left="1024" Top="606" Depth="0.1" Type="16"></Tile>
+
+			<Tile Left="192" Top="320" Depth="0.2" Type="12"></Tile>
+			<Tile Left="320" Top="320" Depth="0.2" Type="14"></Tile>
 		</Tiles>
+		<Decors>
+			<Decor Left="32" Top="528" Depth="0.4" Type="1"></Decor>
+
+			<Decor Left="96" Top="592" Depth="0.4" Type="7"></Decor>
+			<Decor Left="96" Top="592" Depth="0.42" Type="8"></Decor>
+			<Decor Left="144" Top="592" Depth="0.41" Type="9"></Decor>
+			<Decor Left="144" Top="592" Depth="0.42" Type="9"></Decor>
+			<Decor Left="208" Top="592" Depth="0.43" Type="2"></Decor>
+			<Decor Left="96" Top="592" Depth="0.43" Type="3"></Decor>
+
+			<Decor Left="512" Top="528" Depth="0.40" Type="4"></Decor>
+
+			<Decor Left="736" Top="528" Depth="0.40" Type="2"></Decor>
+			<Decor Left="716" Top="528" Depth="0.43" Type="7"></Decor>
+			<Decor Left="768" Top="528" Depth="0.41" Type="8"></Decor>
+			<Decor Left="784" Top="528" Depth="0.42" Type="6"></Decor>
+
+			<Decor Left="928" Top="592" Depth="0.41" Type="8"></Decor>
+			<Decor Left="928" Top="592" Depth="0.40" Type="6"></Decor>
+			<Decor Left="988" Top="592" Depth="0.41" Type="9"></Decor>
+
+			<Decor Left="640" Top="400" Depth="0.40" Type="5"></Decor>
+			<Decor Left="576" Top="400" Depth="0.40" Type="3"></Decor>
+
+			<Decor Left="224" Top="320" Depth="0.40" Type="9"></Decor>
+			<Decor Left="288" Top="320" Depth="0.41" Type="10"></Decor>
+
+			<Decor Left="64" Top="128" Depth="0.40" Type="8"></Decor>
+			<Decor Left="8" Top="128" Depth="0.41" Type="7"></Decor>
+			<Decor Left="8" Top="128" Depth="0.42" Type="9"></Decor>
+			<Decor Left="128" Top="128" Depth="0.43" Type="2"></Decor>
+		</Decors>
 	</Map>
 </Maps>

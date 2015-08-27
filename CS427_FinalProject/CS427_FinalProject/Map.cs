@@ -14,11 +14,14 @@ namespace CS427_FinalProject
 
         private Box box;
 
+        private Decors decors;
+
         public Map()
         {
             this.background = new Background();
             this.mapTiles = new MapTiles();
             CreateBox();
+            this.decors = new Decors();
             Global.gMap = this;
         }
 
@@ -209,6 +212,7 @@ namespace CS427_FinalProject
             this.mapTiles.Update(gameTime);
             CreateNextBox();
             this.box.Update(gameTime);
+            this.decors.Update(gameTime);
         }
 
         private void CreateNextBox()
@@ -224,6 +228,7 @@ namespace CS427_FinalProject
             this.background.Draw(gameTime, param);
             this.mapTiles.Draw(gameTime, param);
             this.box.Draw(gameTime, param);
+            this.decors.Draw(gameTime, param);
         }
     }
 }

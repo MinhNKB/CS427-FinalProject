@@ -19,6 +19,7 @@ namespace CS427_FinalProject
         public static List<Texture2D> backgroundTexture;
         public static List<List<Texture2D>> mapTileTextures;
         public static List<Texture2D> boxTexture;
+        public static List<List<Texture2D>> decorTextures;
 
         public static void Load()
         {
@@ -26,6 +27,19 @@ namespace CS427_FinalProject
             LoadCharacterTextures();
             LoadMapTileTextures();
             LoadBoxTexture();
+            LoadDecorTextures();
+            
+        }
+
+        private static void LoadDecorTextures()
+        {
+            decorTextures = new List<List<Texture2D>>();
+            for (int i = 0; i < 12; ++i)
+            {
+                List<Texture2D> tmp = new List<Texture2D>();
+                tmp.Add(Global.gContent.Load<Texture2D>(@"Textures\Maps\Forrest\Decor\Decor_" + i.ToString("00")));
+                decorTextures.Add(tmp);
+            }
         }
 
         private static void LoadBoxTexture()
