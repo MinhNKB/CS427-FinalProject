@@ -12,5 +12,6 @@ namespace CS427_FinalProject
         Reverse = 2,
         NoJump = 3,
         DoubleJump = 4,
+        Immortal = 255
     }
 }

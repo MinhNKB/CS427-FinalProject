@@ -53,6 +53,7 @@ namespace CS427_FinalProject
             spriteBatch = new SpriteBatch(GraphicsDevice);
             Global.gContent = this.Content;
             Global.gViewState = ViewState.GameView;
+            Global.gDefaultMediumFont = Content.Load<SpriteFont>("DefaultMediumFont");
             TextureFactory.Load();
             gameHandler = new GameHandler();
             // TODO: use this.Content to load your game content here
