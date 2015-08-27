@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 
@@ -30,8 +31,8 @@ namespace CS427_FinalProject
         public Characters()
         {
             LoadCharacters();
-            characters[0].Spawn(0, 592);
-            characters[1].Spawn(0, 592);
+            Spawn(characters[0]);
+            Spawn(characters[1]);
         }
 
         private void LoadCharacters()
@@ -45,16 +46,27 @@ namespace CS427_FinalProject
 
         void c_Respawn(object sender, EventArgs e)
         {
-            (sender as Character).Spawn(0, 592);
-            if ((sender as Dog) != null)
-                (sender as Character).CurrentEffect = SpecialEffect.Haste;
+            Spawn(sender as Character);            
+        }
+
+        private static void Spawn(Character character)
+        {
+            Vector2 newPosition = Global.gMap.GetSpawnPosition();
+            character.Spawn(newPosition.X, newPosition.Y);
         }
 
         public override void Update(GameTime gameTime)
         {
-            base.Update(gameTime);            
-            if (Global.gKeyboardHelper.IsKeyPressed(Microsoft.Xna.Framework.Input.Keys.S))
-                characters[0].CurrentState = CharacterState.Dead;
+            base.Update(gameTime);
+            foreach (Character c in characters)
+            {
+                if (c.CurrentState == CharacterState.Fall)
+                {
+                    SpecialEffect effect = Global.gMap.GetEffect(c.BoundingBox);
+                    if (effect != SpecialEffect.None)
+                        c.CurrentEffect = effect;
+                }
+            }         
             CheckKill();
             for (int i = 0; i < characters.Count; ++i)
                 characters[i].Update(gameTime);

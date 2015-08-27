@@ -23,7 +23,7 @@ namespace CS427_FinalProject
             map.Update(gameTime);
             characters.Update(gameTime);
             List<Vector4> distances = map.GetDistances(this.characters.BoundingBoxes);
-            this.characters.SetDistances(distances);
+            this.characters.SetDistances(distances);           
         }
         public override void Draw(GameTime gameTime, object param)
         {

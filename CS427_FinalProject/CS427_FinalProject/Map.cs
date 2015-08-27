@@ -145,7 +145,7 @@ namespace CS427_FinalProject
             return result;
         }
 
-        private SpecialEffect GetEffect(Vector4 boundingBox)
+        public SpecialEffect GetEffect(Vector4 boundingBox)
         {
             if (IsBoxValid() && AbleToGetBox(boundingBox))
             {
