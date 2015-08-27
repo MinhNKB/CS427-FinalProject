@@ -64,7 +64,19 @@ namespace CS427_FinalProject
                 {
                     SpecialEffect effect = Global.gMap.GetEffect(c.BoundingBox);
                     if (effect != SpecialEffect.None)
-                        c.CurrentEffect = effect;
+                    {
+                        if(effect!= SpecialEffect.NoJump)
+                            c.CurrentEffect = effect;
+                        else
+                        {
+                            int index = characters.IndexOf(c);
+                            if (index == 0)
+                                index = 1;
+                            else
+                                index = 0;
+                            characters[index].CurrentEffect = SpecialEffect.NoJump;
+                        }
+                    }
                 }
             }         
             CheckKill();
