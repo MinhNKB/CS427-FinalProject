@@ -10,6 +10,7 @@ namespace CS427_FinalProject
     class Characters : VisibleGameEntity
     {
         private List<Character> characters;
+        private EffectNotification effectNotification = new EffectNotification();
 
         internal List<Character> ListCharacters
         {
@@ -83,9 +84,11 @@ namespace CS427_FinalProject
                                 index = 0;
                             characters[index].CurrentEffect = SpecialEffect.NoJump;
                         }
+                        effectNotification.Show(effect, c.BoundingBox);
                     }
                 }
-            }         
+            }
+            effectNotification.Update(gameTime);
             CheckKill();
             for (int i = 0; i < characters.Count; ++i)
                 characters[i].Update(gameTime);
@@ -116,6 +119,7 @@ namespace CS427_FinalProject
             base.Draw(gameTime, param);
             for (int i = 0; i < characters.Count; ++i)
                 characters[i].Draw(gameTime, param);
+            effectNotification.Draw(gameTime, param);
         }
     }
 }
