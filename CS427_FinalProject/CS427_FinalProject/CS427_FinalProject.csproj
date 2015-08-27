@@ -75,6 +75,8 @@
     <Compile Include="Background.cs" />
     <Compile Include="Box.cs" />
     <Compile Include="Cat.cs" />
+    <Compile Include="Decor.cs" />
+    <Compile Include="Decors.cs" />
     <Compile Include="Dog.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="Characters.cs" />
