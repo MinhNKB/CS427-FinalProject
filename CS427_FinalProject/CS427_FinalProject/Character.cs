@@ -127,6 +127,7 @@ namespace CS427_FinalProject
             this.ActualLeft = left;
             this.ActualBottom = bottom;
             this.currentState = CharacterState.Idle;
+            this.CurrentEffect = SpecialEffect.None;
             this.verticalVelocity = 0;
             this.horizontalDirection = 0;
             this.delayRespawn = 20;            
