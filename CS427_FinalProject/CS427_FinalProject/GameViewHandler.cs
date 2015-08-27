@@ -22,6 +22,8 @@ namespace CS427_FinalProject
             base.Update(gameTime);
             map.Update(gameTime);
             characters.Update(gameTime);
+            List<Vector4> distances = map.GetDistances(this.characters.BoundingBoxes);
+            this.characters.SetDistances(distances);           
         }
         public override void Draw(GameTime gameTime, object param)
         {

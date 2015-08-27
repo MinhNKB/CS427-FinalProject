@@ -7,6 +7,10 @@ namespace CS427_FinalProject
 {
     enum SpecialEffect
     {
-        None = 0
+        None = 0,
+        Haste = 1,
+        Reverse = 2,
+        NoJump = 3,
+        DoubleJump = 4,
     }
 }

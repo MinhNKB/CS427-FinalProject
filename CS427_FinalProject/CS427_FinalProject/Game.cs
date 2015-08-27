@@ -98,7 +98,7 @@ namespace CS427_FinalProject
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
-            spriteBatch.Begin();
+            spriteBatch.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend);
             this.gameHandler.Draw(gameTime, this.spriteBatch);
             spriteBatch.End();
 

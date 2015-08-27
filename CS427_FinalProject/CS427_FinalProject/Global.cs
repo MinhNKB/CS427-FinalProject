@@ -12,13 +12,11 @@ namespace CS427_FinalProject
         public static MouseHelper gMousetHelper = new MouseHelper();
         public static ViewState gViewState;
         public static ContentManager gContent;
-
-        internal static void UpdateAll(Microsoft.Xna.Framework.GameTime gameTime)
+        public static Map gMap;
+        public static void UpdateAll(Microsoft.Xna.Framework.GameTime gameTime)
         {            
             gKeyboardHelper.Update(gameTime);
             gMousetHelper.Update(gameTime);
         }
-
-
     }
 }

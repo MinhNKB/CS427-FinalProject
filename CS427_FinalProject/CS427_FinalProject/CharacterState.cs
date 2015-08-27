@@ -10,6 +10,8 @@ namespace CS427_FinalProject
         Idle = 0,
         Run = 1,
         Fall = 2,
-        Jump = 3
+        Jump = 3,
+        Dead = 4,
+        None = 255
     }
 }
