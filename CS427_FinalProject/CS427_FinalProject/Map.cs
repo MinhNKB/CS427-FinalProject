@@ -27,7 +27,7 @@ namespace CS427_FinalProject
         {
             int effect = rand.Next(1, 5);
             Vector2 position = GetSpawnPosition();
-            box = new Box(position.X, position.Y, 0.4f, effect);
+            box = new Box(position.X, position.Y, 0.5f, effect);
             this.lastCreatedBoxTime = DateTime.Now;
         }
 
@@ -195,11 +195,10 @@ namespace CS427_FinalProject
             List<KeyValuePair<float, List<MapTile>>> list = this.mapTiles.HSortedTiles;
             int index = MapTiles.FindIndexSortedTiles(boundingBox.W, list);
             ++index;
-            if (index == list.Count)
-                return false;
-            foreach (MapTile tile in list[index].Value)
-                if (IsHorizontalValid(boundingBox, tile) == true)
-                    return true;
+            for (int i = index; i < list.Count; ++i)
+                foreach (MapTile tile in list[i].Value)
+                    if (IsHorizontalValid(boundingBox, tile) == true)
+                        return true;
             return false;
         }
 
