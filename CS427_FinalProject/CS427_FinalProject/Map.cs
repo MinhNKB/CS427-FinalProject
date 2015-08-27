@@ -190,6 +190,19 @@ namespace CS427_FinalProject
             return new Vector2(spawnTile.BoundingBox.X, spawnTile.BoundingBox.Y);
         }
 
+        public bool HasNextBottomEdge(Vector4 boundingBox)
+        {
+            List<KeyValuePair<float, List<MapTile>>> list = this.mapTiles.HSortedTiles;
+            int index = MapTiles.FindIndexSortedTiles(boundingBox.W, list);
+            ++index;
+            if (index == list.Count)
+                return false;
+            foreach (MapTile tile in list[index].Value)
+                if (IsHorizontalValid(boundingBox, tile) == true)
+                    return true;
+            return false;
+        }
+
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
