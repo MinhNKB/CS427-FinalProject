@@ -10,6 +10,8 @@ namespace CS427_FinalProject
         MainMenuView = 0,
         GameView = 1,
         NewGameView = 2,
-        SettingView = 3
+        SettingView = 3,
+        PauseView = 4,
+        GameOverView = 5
     }
 }
