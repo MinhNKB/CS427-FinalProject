@@ -121,7 +121,14 @@ namespace CS427_FinalProject
             }
         }
 
+        private Color color = Color.White;
 
+        public Color Color
+        {
+            get { return color; }
+            set { color = value; }
+        }        
+        
         public void Update(GameTime gameTime)
         {
             if (repeat)
@@ -135,7 +142,7 @@ namespace CS427_FinalProject
         {
 
             //spriteBatch.Draw(_Textures[_iTexture], new Vector2(_Left,_Top), new Rectangle(0, 0, _Textures[_iTexture].Width, _Textures[_iTexture].Height), Color.White);
-            spriteBatch.Draw(textures[iTexture], new Vector2(left - reverseFactor, top), new Rectangle(0, 0, Width, Height), Color.White, 0f, Vector2.Zero, 1, effect, depth);
-        }
+            spriteBatch.Draw(textures[iTexture], new Vector2(left - reverseFactor, top), new Rectangle(0, 0, Width, Height), color, 0f, Vector2.Zero, 1, effect, depth);
+        }        
     }
 }

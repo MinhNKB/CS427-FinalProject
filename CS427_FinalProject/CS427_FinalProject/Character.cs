@@ -32,7 +32,7 @@ namespace CS427_FinalProject
         protected int delayRespawn, effectDuration;
         protected int hasteFactor = 1;
         protected int gravityAcceleration = 3;
-        private int point;
+        private int point;        
 
         public int Point
         {
@@ -280,6 +280,13 @@ namespace CS427_FinalProject
                 {
                     this.CurrentEffect = SpecialEffect.None;
                 }
+
+                if (this.CurrentEffect == SpecialEffect.DoubleJump || this.CurrentEffect == SpecialEffect.Haste)
+                    characterSprites[currentState].Color = Color.FromNonPremultiplied(255, 255, 255, 255);
+                else if (this.CurrentEffect == SpecialEffect.NoJump || this.CurrentEffect == SpecialEffect.Reverse)
+                    characterSprites[currentState].Color = Color.FromNonPremultiplied(255, 255, 255, 255);
+                else
+                    characterSprites[currentState].Color = Color.White;
             }
         }
 
