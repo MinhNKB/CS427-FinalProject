@@ -31,9 +31,9 @@ namespace CS427_FinalProject
             base.Draw(gameTime, param);
             map.Draw(gameTime, param);
             characters.Draw(gameTime, param);
-            SpriteBatch spriteBatch = param as SpriteBatch;
-            spriteBatch.DrawString(Global.gDefaultMediumFont, characters.ListCharacters[0].Point.ToString(), new Vector2(5, 0), Color.Black, 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
-            spriteBatch.DrawString(Global.gDefaultMediumFont, characters.ListCharacters[1].Point.ToString(), new Vector2(1240, 0), Color.Black, 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
+            SpriteBatch spriteBatch = param as SpriteBatch;            
+            spriteBatch.DrawString(Global.gDefaultMediumFont, characters.ListCharacters[0].Point.ToString(), new Vector2(5, 0), Color.FromNonPremultiplied(206, 235, 12, 255), 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
+            spriteBatch.DrawString(Global.gDefaultMediumFont, characters.ListCharacters[1].Point.ToString(), new Vector2(1240, 0), Color.FromNonPremultiplied(206, 235, 12, 255), 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
         }
     }
 }

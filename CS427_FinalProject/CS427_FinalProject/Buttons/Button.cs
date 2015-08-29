@@ -9,8 +9,7 @@ namespace CS427_FinalProject.Buttons
 {
     abstract class Button : VisibleGameEntity
     {
-        protected Dictionary<ButtonState, Sprite2D> buttonImages;
-        protected Sprite2D currentImage;
+        protected Dictionary<ButtonState, Sprite2D> buttonImages;        
         private ButtonState currentState;
 
         public Button()

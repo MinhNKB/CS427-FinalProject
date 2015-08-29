@@ -5,11 +5,7 @@ using System.Text;
 
 namespace CS427_FinalProject
 {
-    enum ViewState
+    class SettingView : MenuViewHandler
     {
-        MainMenuView = 0,
-        GameView = 1,
-        NewGameView = 2,
-        SettingView = 3
     }
 }
