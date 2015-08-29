@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+﻿using CS427_FinalProject.Buttons;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,11 +16,13 @@ namespace CS427_FinalProject
     class TextureFactory
     {
         public static Dictionary<CharacterTexture, Dictionary<CharacterState, List<Texture2D>>> characterTextures;
-
         public static List<Texture2D> backgroundTexture;
         public static List<List<Texture2D>> mapTileTextures;
         public static List<Texture2D> boxTexture;
         public static List<List<Texture2D>> decorTextures;
+        public static List<Texture2D> menuBackgroundTexture;
+        public static List<Texture2D> menuLogoTexture;
+        public static Dictionary<ButtonType, Dictionary<ButtonState, List<Texture2D>>> buttonTextures;
 
         public static void Load()
         {
@@ -28,7 +31,44 @@ namespace CS427_FinalProject
             LoadMapTileTextures();
             LoadBoxTexture();
             LoadDecorTextures();
-            
+            LoadMenuBackgroundTexture();
+            LoadMenuLogo();
+            LoadButtonTextures();
+        }
+
+        private static void LoadMenuLogo()
+        {
+            menuLogoTexture = new List<Texture2D>();
+            menuLogoTexture.Add(Global.gContent.Load<Texture2D>(@"Textures\Menu\Logo\Logo"));
+        }
+
+        private static void LoadMenuBackgroundTexture()
+        {
+            menuBackgroundTexture = new List<Texture2D>();
+            menuBackgroundTexture.Add(Global.gContent.Load<Texture2D>(@"Textures\Menu\Background\Background_00"));
+        }
+
+        private static void LoadButtonTextures()
+        {
+            buttonTextures = new Dictionary<ButtonType, Dictionary<ButtonState, List<Texture2D>>>();
+            for(int i=0;i<12;i++)
+            {
+                ButtonType type = (ButtonType)i;
+                buttonTextures.Add(type,GetAButton(type));
+            }
+        }
+
+        private static Dictionary<ButtonState, List<Texture2D>> GetAButton(ButtonType type)
+        {
+            Dictionary<ButtonState, List<Texture2D>> result = new Dictionary<ButtonState, List<Texture2D>>();
+            for(int i = 0;i<3;i++)
+            {
+                ButtonState state = (ButtonState)i;
+                List<Texture2D> temp = new List<Texture2D>();
+                temp.Add(Global.gContent.Load<Texture2D>(@"Textures\Menu\Buttons\Btn_"+type.ToString()+"_"+i.ToString("00")));
+                result.Add(state,temp);
+            }
+            return result;
         }
 
         private static void LoadDecorTextures()

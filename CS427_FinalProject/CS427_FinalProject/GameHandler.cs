@@ -14,6 +14,7 @@ namespace CS427_FinalProject
             viewHandlers = new Dictionary<ViewState, ViewHandler>();
 
             viewHandlers.Add(ViewState.GameView, new GameViewHandler());
+            viewHandlers.Add(ViewState.MainMenuView, new MainMenuViewHandler());
             //viewHandlers.Add(ViewState.MenuView, new MenuViewHandler());
         }
 

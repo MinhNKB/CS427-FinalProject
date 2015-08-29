@@ -76,6 +76,10 @@
     <Compile Include="Box.cs" />
     <Compile Include="Buttons\Button.cs" />
     <Compile Include="Buttons\ButtonState.cs" />
+    <Compile Include="Buttons\ButtonType.cs" />
+    <Compile Include="Buttons\Exit.cs" />
+    <Compile Include="Buttons\Play.cs" />
+    <Compile Include="Buttons\Setting.cs" />
     <Compile Include="Cat.cs" />
     <Compile Include="Decor.cs" />
     <Compile Include="Decors.cs" />
@@ -93,6 +97,7 @@
     <Compile Include="Map.cs" />
     <Compile Include="MapTile.cs" />
     <Compile Include="MapTiles.cs" />
+    <Compile Include="MainMenuViewHandler.cs" />
     <Compile Include="MenuViewHandler.cs" />
     <Compile Include="MouseHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
