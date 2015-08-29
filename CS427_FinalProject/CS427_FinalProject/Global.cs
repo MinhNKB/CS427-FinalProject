@@ -15,6 +15,8 @@ namespace CS427_FinalProject
         public static ContentManager gContent;
         public static Map gMap;
         public static SpriteFont gDefaultMediumFont;
+        public static MapState gMapState;
+        public static int gKillLimit;
        
         public static void UpdateAll(Microsoft.Xna.Framework.GameTime gameTime)
         {            

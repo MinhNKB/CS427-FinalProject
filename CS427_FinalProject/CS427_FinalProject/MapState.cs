@@ -5,10 +5,9 @@ using System.Text;
 
 namespace CS427_FinalProject
 {
-    enum ViewState
+    enum MapState
     {
-        MainMenuView = 0,
-        GameView = 1,
-        NewGameView = 2,
+        Forrest = 0,
+        Snow = 1
     }
 }

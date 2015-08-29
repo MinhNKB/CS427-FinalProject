@@ -15,6 +15,7 @@ namespace CS427_FinalProject
 
             viewHandlers.Add(ViewState.GameView, new GameViewHandler());
             viewHandlers.Add(ViewState.MainMenuView, new MainMenuViewHandler());
+            viewHandlers.Add(ViewState.NewGameView, new NewGameViewHandler());
             //viewHandlers.Add(ViewState.MenuView, new MenuViewHandler());
         }
 

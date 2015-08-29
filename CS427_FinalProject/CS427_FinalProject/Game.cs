@@ -26,7 +26,7 @@ namespace CS427_FinalProject
             Content.RootDirectory = "Content";
             graphics.PreferredBackBufferWidth = 1280;
             graphics.PreferredBackBufferHeight = 720;
-            graphics.IsFullScreen = true;
+            //graphics.IsFullScreen = true;
             this.TargetElapsedTime = TimeSpan.FromSeconds(1.0f / 30.0f);
             IsMouseVisible = true;
         }
