@@ -9,5 +9,6 @@ namespace CS427_FinalProject
     {
         MainMenuView = 0,
         GameView = 1,
+        NewGameView = 2,
     }
 }
