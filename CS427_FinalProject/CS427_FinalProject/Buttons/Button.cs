@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,11 @@ namespace CS427_FinalProject.Buttons
         protected Dictionary<ButtonState, Sprite2D> buttonImages;
         protected Sprite2D currentImage;
         private ButtonState currentState;
+
+        public Button()
+        {
+            buttonImages = new Dictionary<ButtonState, Sprite2D>();
+        }
 
         protected ButtonState CurrentState
         {
@@ -34,20 +40,44 @@ namespace CS427_FinalProject.Buttons
 
         protected virtual void OnClick()
         {
-            currentImage = buttonImages[ButtonState.Click];
+            
         }
 
         protected virtual void OnHover()
         {
-            currentImage = buttonImages[ButtonState.Hover];
+            
         }
 
         protected virtual void OnNormal()
         {
-            currentImage = buttonImages[ButtonState.Normal];
+            
         }
 
         protected float left, top;
+
+        public float Top
+        {
+            get { return top; }
+            set { 
+                top = value;
+                foreach(ButtonState s in buttonImages.Keys)
+                {
+                    buttonImages[s].Top = top;
+                }
+            }
+        }
+
+        public float Left
+        {
+            get { return left; }
+            set { 
+                left = value;
+                foreach (ButtonState s in buttonImages.Keys)
+                {
+                    buttonImages[s].Left = left;
+                }
+            }
+        }
         protected int width, height; 
         
 
@@ -100,6 +130,7 @@ namespace CS427_FinalProject.Buttons
         public override void Draw(GameTime gameTime, object param)
         {
             base.Draw(gameTime, param);
+            buttonImages[currentState].Draw(gameTime, param as SpriteBatch);
         }
     }
 }

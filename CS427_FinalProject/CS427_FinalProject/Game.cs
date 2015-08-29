@@ -26,8 +26,9 @@ namespace CS427_FinalProject
             Content.RootDirectory = "Content";
             graphics.PreferredBackBufferWidth = 1280;
             graphics.PreferredBackBufferHeight = 720;
-            //graphics.IsFullScreen = true;
+            graphics.IsFullScreen = true;
             this.TargetElapsedTime = TimeSpan.FromSeconds(1.0f / 30.0f);
+            IsMouseVisible = true;
         }
 
         /// <summary>
@@ -52,7 +53,7 @@ namespace CS427_FinalProject
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             Global.gContent = this.Content;
-            Global.gViewState = ViewState.GameView;
+            Global.gViewState = ViewState.MainMenuView;
             Global.gDefaultMediumFont = Content.Load<SpriteFont>("DefaultMediumFont");
             TextureFactory.Load();
             gameHandler = new GameHandler();
