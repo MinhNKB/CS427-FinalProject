@@ -673,11 +673,6 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Textures\Menu\Buttons\Btn_Accept_01.png">
-      <Name>Btn_Accept_01</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
     <Compile Include="Textures\Menu\Buttons\Btn_Accept_02.png">
       <Name>Btn_Accept_02</Name>
       <Importer>TextureImporter</Importer>
@@ -850,8 +845,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Textures\Menu\Logo\Logo.png">
-      <Name>Logo</Name>
+    <Compile Include="Textures\Menu\Buttons\Btn_Accept_01.png">
+      <Name>Btn_Accept_01</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
