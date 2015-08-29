@@ -73,8 +73,11 @@ namespace CS427_FinalProject
                     if (effect != SpecialEffect.None)
                     {
                         c.CurrentState = CharacterState.Jump;
-                        if(effect!= SpecialEffect.NoJump)
+                        if (effect != SpecialEffect.NoJump)
+                        {
                             c.CurrentEffect = effect;
+                            effectNotification.Show(effect, c.BoundingBox);
+                        }
                         else
                         {
                             int index = characters.IndexOf(c);
@@ -83,8 +86,8 @@ namespace CS427_FinalProject
                             else
                                 index = 0;
                             characters[index].CurrentEffect = SpecialEffect.NoJump;
-                        }
-                        effectNotification.Show(effect, c.BoundingBox);
+                            effectNotification.Show(effect, characters[index].BoundingBox);
+                        }                        
                     }
                 }
             }
