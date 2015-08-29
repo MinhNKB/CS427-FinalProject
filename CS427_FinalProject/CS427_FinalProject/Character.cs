@@ -266,10 +266,16 @@ namespace CS427_FinalProject
                     this.point--;
                 }
 
+
                 if (this.ActualBottom > 720 - 128)
                     this.characterSprites[this.CurrentState].Depth = 0.05f;
                 else
-                    this.characterSprites[this.CurrentState].Depth = 1;
+                {
+                    if (Global.gMap.isFront(this.BoundingBox))
+                        this.characterSprites[currentState].Depth = 1f;
+                    else
+                        this.characterSprites[currentState].Depth = 0.9f;
+                }
 
                 this.ActualBottom += verticalVelocity;    
                 this.characterSprites[this.CurrentState].Reverse = this.reverse;
@@ -288,6 +294,7 @@ namespace CS427_FinalProject
                 else
                     characterSprites[currentState].Color = Color.White;
             }
+            
         }
 
         public override void Draw(GameTime gameTime, object param)

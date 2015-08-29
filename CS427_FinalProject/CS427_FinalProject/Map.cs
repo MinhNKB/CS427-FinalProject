@@ -159,6 +159,20 @@ namespace CS427_FinalProject
             return SpecialEffect.None;
         }
 
+        public bool isFront(Vector4 boundingBox)
+        {
+            List<KeyValuePair<float, List<MapTile>>> list = this.mapTiles.HSortedTiles;
+            int index = MapTiles.FindIndexSortedTiles(boundingBox.W, list);
+            for (int i = index; i < list.Count; ++i)
+                foreach (MapTile tile in list[i].Value)
+                    if (IsHorizontalValid(boundingBox, tile) == true)
+                        if (tile.Sprite2D.Depth == 0.3f)
+                            return true;
+                        else
+                            return false;
+            return false;
+        }
+
         private bool IsAbleToGetBox(Vector4 boundingBox)
         {
             if ((boundingBox.W <= this.box.BoundingBox.Y + 20 && boundingBox.W >= this.box.BoundingBox.Y))
