@@ -51,7 +51,7 @@ namespace CS427_FinalProject
         {
             base.Draw(gameTime, param);
             if (duration > 0)
-                (param as SpriteBatch).DrawString(Global.gDefaultMediumFont, effectString, new Vector2(left - 100, bottom - 10), Color.Black, 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
+                (param as SpriteBatch).DrawString(Global.gDefaultMediumFont, effectString, new Vector2(left - 100, bottom - 10), Color.FromNonPremultiplied(206,235,12,255), 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
         }
     }
 }
