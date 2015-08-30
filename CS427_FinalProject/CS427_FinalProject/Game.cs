@@ -41,8 +41,8 @@ namespace CS427_FinalProject
         {
             // TODO: Add your initialization logic here
 
-            base.Initialize();
-        }
+            base.Initialize();            
+        }        
 
         /// <summary>
         /// LoadContent will be called once per game and is the place to load
@@ -59,7 +59,12 @@ namespace CS427_FinalProject
             Global.gDefaultLargeFont = Content.Load<SpriteFont>("DefaultLargeFont");
             Global.gDefaultExtraLargeFont = Content.Load<SpriteFont>("DefaultExtraLargeFont");
             TextureFactory.Load();
+            Effects.Load();
             gameHandler = new GameHandler();
+            Song music = Content.Load<Song>(@"Music\Music_00");
+            MediaPlayer.Play(music);
+            MediaPlayer.Volume = Global.gMusic * 0.2f;
+            MediaPlayer.IsRepeating = true;
             // TODO: use this.Content to load your game content here
         }
 
