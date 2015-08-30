@@ -75,6 +75,7 @@
     <Compile Include="Background.cs" />
     <Compile Include="Box.cs" />
     <Compile Include="Buttons\Accept.cs" />
+    <Compile Include="Buttons\BackButton.cs" />
     <Compile Include="Buttons\Button.cs" />
     <Compile Include="Buttons\ButtonState.cs" />
     <Compile Include="Buttons\ButtonType.cs" />
