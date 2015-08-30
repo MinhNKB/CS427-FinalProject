@@ -14,7 +14,7 @@ namespace CS427_FinalProject
         public static ViewState gViewState;
         public static ContentManager gContent;
         public static Map gMap;
-        public static SpriteFont gDefaultMediumFont, gDefaultLargeFont;
+        public static SpriteFont gDefaultMediumFont, gDefaultLargeFont, gDefaultExtraLargeFont;
         public static MapState gMapState;
         public static int gKillLimit;
         public static Game gGame;

@@ -913,6 +913,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DefaultExtraLargeFont.spritefont">
+      <Name>DefaultExtraLargeFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Textures\Characters\Head\Head_Cat.png">
       <Name>Head_Cat</Name>
       <Importer>TextureImporter</Importer>
