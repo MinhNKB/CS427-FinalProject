@@ -80,6 +80,7 @@
     <Compile Include="Buttons\ButtonType.cs" />
     <Compile Include="Buttons\Cancel.cs" />
     <Compile Include="Buttons\Exit.cs" />
+    <Compile Include="Buttons\MapButton.cs" />
     <Compile Include="Buttons\Menu.cs" />
     <Compile Include="Buttons\Minus.cs" />
     <Compile Include="Buttons\Music.cs" />

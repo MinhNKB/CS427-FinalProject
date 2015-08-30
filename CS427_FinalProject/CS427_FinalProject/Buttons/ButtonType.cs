@@ -18,6 +18,8 @@ namespace CS427_FinalProject.Buttons
         Reload = 8,
         Resume = 9,
         Setting = 10,
-        Sound = 11
+        Sound = 11,
+        ForrestMap = 12,
+        SnowMap = 13,
     }
 }

@@ -10,9 +10,23 @@ namespace CS427_FinalProject
     {
         public NewGameViewHandler()
         {
-            //this.buttons.Add(new Accept(555, 525));
-            //this.buttons.Add(new Menu(369, 542));
-            //this.buttons.Add(new Exit(777, 542));
+            this.buttons.Add(new Accept(656, 542));
+            this.buttons.Add(new Menu(484, 542));
+            this.buttons.Add(new MapButton(112, 64, ButtonType.ForrestMap));
+            this.buttons.Add(new MapButton(656, 64, ButtonType.SnowMap));
+            this.buttons[2].Click += ForrestMapButton_Click;
+            this.buttons[3].Click += SnowMapButton_Click;
+            this.buttons[0].CurrentState = ButtonState.Locked;
+        }
+
+        private void SnowMapButton_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        void ForrestMapButton_Click(object sender, EventArgs e)
+        {
+            
         }
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
