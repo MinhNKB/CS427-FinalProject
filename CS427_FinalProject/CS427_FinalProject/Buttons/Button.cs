@@ -96,8 +96,9 @@ namespace CS427_FinalProject.Buttons
                 if (Global.gMousetHelper.IsLeftButtonPressed())
                 {
                     if (IsMouseOver(mousePosition))
-                    {
+                    {                        
                         OnClick();
+                        Effects.Data[EffectType.Click].Play(Global.gSound * 0.2f, 0, 0);
                     }
                 }
                 else

@@ -26,7 +26,7 @@ namespace CS427_FinalProject
             Content.RootDirectory = "Content";
             graphics.PreferredBackBufferWidth = 1280;
             graphics.PreferredBackBufferHeight = 720;
-            graphics.IsFullScreen = true;
+            //graphics.IsFullScreen = true;
             this.TargetElapsedTime = TimeSpan.FromSeconds(1.0f / 30.0f);
             IsMouseVisible = true;
         }
@@ -58,6 +58,7 @@ namespace CS427_FinalProject
             Global.gDefaultMediumFont = Content.Load<SpriteFont>("DefaultMediumFont");
             Global.gDefaultLargeFont = Content.Load<SpriteFont>("DefaultLargeFont");
             TextureFactory.Load();
+            Effects.Load();
             gameHandler = new GameHandler();
             Song music = Content.Load<Song>(@"Music\Music_00");
             MediaPlayer.Play(music);
