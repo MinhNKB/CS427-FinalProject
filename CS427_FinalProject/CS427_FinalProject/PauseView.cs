@@ -5,7 +5,7 @@ using System.Text;
 
 namespace CS427_FinalProject
 {
-    class PauseView
+    class PauseView : MenuViewHandler
     {
     }
 }
