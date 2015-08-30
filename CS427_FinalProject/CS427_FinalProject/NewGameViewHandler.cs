@@ -10,6 +10,14 @@ namespace CS427_FinalProject
 {
     class NewGameViewHandler : MenuViewHandler
     {
+        public event EventHandler AcceptBtn_Click;
+
+        private void OnAcceptBtn_Click()
+        {
+            if (AcceptBtn_Click != null)
+                AcceptBtn_Click(this, new EventArgs());
+        }
+
         public NewGameViewHandler()
         {
             AddButtons();
@@ -21,7 +29,6 @@ namespace CS427_FinalProject
         private void AddEvents()
         {
             this.buttons[0].Click += AccpetButton_Click;
-            this.buttons[1].Click += MenuButton_Click;
             this.buttons[2].Click += ForrestMapButton_Click;
             this.buttons[3].Click += SnowMapButton_Click;
             this.buttons[4].Click += MinusButton_Click;
@@ -40,14 +47,9 @@ namespace CS427_FinalProject
                 Global.gKillLimit -= 10;
         }
 
-        private void MenuButton_Click(object sender, EventArgs e)
-        {
-            Global.gViewState = ViewState.MainMenuView;
-        }
-
         private void AccpetButton_Click(object sender, EventArgs e)
         {
-            Global.gViewState = ViewState.GameView;
+            OnAcceptBtn_Click();
         }
 
         private void SnowMapButton_Click(object sender, EventArgs e)
