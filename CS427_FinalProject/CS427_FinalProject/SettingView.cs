@@ -7,5 +7,6 @@ namespace CS427_FinalProject
 {
     class SettingView : MenuViewHandler
     {
+
     }
 }

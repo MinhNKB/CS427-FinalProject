@@ -5,7 +5,7 @@ using System.Text;
 
 namespace CS427_FinalProject
 {
-    class GameOverView
+    class GameOverView : MenuViewHandler
     {
     }
 }

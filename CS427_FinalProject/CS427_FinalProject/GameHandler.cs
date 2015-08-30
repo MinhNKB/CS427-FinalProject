@@ -16,6 +16,9 @@ namespace CS427_FinalProject
             viewHandlers.Add(ViewState.GameView, new GameViewHandler());
             viewHandlers.Add(ViewState.MainMenuView, new MainMenuViewHandler());
             viewHandlers.Add(ViewState.NewGameView, new NewGameViewHandler());
+            viewHandlers.Add(ViewState.SettingView, new SettingView());
+            viewHandlers.Add(ViewState.PauseView, new PauseView());
+            viewHandlers.Add(ViewState.GameOverView, new GameOverView());
             //viewHandlers.Add(ViewState.MenuView, new MenuViewHandler());
         }
 

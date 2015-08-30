@@ -53,7 +53,7 @@ namespace CS427_FinalProject
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             Global.gContent = this.Content;
-            Global.gViewState = ViewState.MainMenuView;
+            Global.gViewState = ViewState.SettingView;
             Global.gDefaultMediumFont = Content.Load<SpriteFont>("DefaultMediumFont");
             TextureFactory.Load();
             gameHandler = new GameHandler();
