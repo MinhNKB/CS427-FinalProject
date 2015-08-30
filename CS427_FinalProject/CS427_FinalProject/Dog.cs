@@ -13,10 +13,10 @@ namespace CS427_FinalProject
         {
             LoadSprites(CharacterTexture.Dog);
             this.CurrentState = CharacterState.None;
-            this.keyUp = Keys.W;
-            this.keyLeft = Keys.A;
-            this.keyRight = Keys.D;
-            this.keyDown = Keys.S;
+            this.keyUp = Keys.Up;
+            this.keyLeft = Keys.Left;
+            this.keyRight = Keys.Right;
+            this.keyDown = Keys.Down;
         }
     }
 }
