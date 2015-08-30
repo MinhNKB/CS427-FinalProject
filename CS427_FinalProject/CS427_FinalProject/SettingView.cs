@@ -1,6 +1,7 @@
 ﻿using CS427_FinalProject.Buttons;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Media;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,15 @@ namespace CS427_FinalProject
                     Global.gSound = 5;
                 else if (Global.gSound < 0)
                     Global.gSound = 0;
+
+                if (Global.gSound == 0)
+                    soundDown.CurrentState = ButtonState.Locked;
+                else
+                    soundDown.CurrentState = ButtonState.Normal;
+                if (Global.gSound == 5)
+                    soundUp.CurrentState = ButtonState.Locked;
+                else
+                    soundUp.CurrentState = ButtonState.Normal;
             }
         }
 
@@ -35,6 +45,17 @@ namespace CS427_FinalProject
                     Global.gMusic = 5;
                 else if (Global.gMusic < 0)
                     Global.gMusic = 0;
+                MediaPlayer.Volume = Global.gMusic * 0.2f;
+                if (Global.gMusic == 0)
+                    musicDown.CurrentState = ButtonState.Locked;
+                else
+                    musicDown.CurrentState = ButtonState.Normal;
+                if (Global.gMusic == 5)
+                    musicUp.CurrentState = ButtonState.Locked;
+                else
+                    musicUp.CurrentState = ButtonState.Normal;
+             
+
             }
         }
         public SettingView()
