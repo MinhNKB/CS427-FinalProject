@@ -12,12 +12,14 @@ namespace CS427_FinalProject.Buttons
         protected Dictionary<ButtonState, Sprite2D> buttonImages;        
         private ButtonState currentState;
 
+        public event EventHandler Click;
+
         public Button()
         {
             buttonImages = new Dictionary<ButtonState, Sprite2D>();
         }
 
-        protected ButtonState CurrentState
+        public ButtonState CurrentState
         {
             get { return currentState; }
             set { 
@@ -30,7 +32,7 @@ namespace CS427_FinalProject.Buttons
                 {
                     OnHover();
                 }
-                else
+                else if(currentState == ButtonState.Click)
                 {
                     OnClick();
                 }
@@ -39,7 +41,8 @@ namespace CS427_FinalProject.Buttons
 
         protected virtual void OnClick()
         {
-            
+            if (this.Click != null)
+                Click(this, new EventArgs());
         }
 
         protected virtual void OnHover()
@@ -92,20 +95,24 @@ namespace CS427_FinalProject.Buttons
         {
             //naive
             Vector2 mousePosition = Global.gMousetHelper.GetCurrentMousePosition();
-            if(Global.gMousetHelper.IsLeftButtonPressed())
+            if (this.currentState != ButtonState.Locked)
             {
-                if(IsMouseOver(mousePosition))
+                if (Global.gMousetHelper.IsLeftButtonPressed())
                 {
-                    CurrentState = ButtonState.Click;
+                    if (IsMouseOver(mousePosition))
+                    {
+                        CurrentState = ButtonState.Click;
+                    }
+                }
+                else
+                {
+
+                    if (IsMouseOver(mousePosition))
+                        CurrentState = ButtonState.Hover;
+                    else
+                        CurrentState = ButtonState.Normal;
                 }
             }
-            else 
-            {
-                if (IsMouseOver(mousePosition))
-                    CurrentState = ButtonState.Hover;
-                else
-                    CurrentState = ButtonState.Normal;
-            }            
         }
 
         private bool IsMouseOver(Vector2 mousePosition)

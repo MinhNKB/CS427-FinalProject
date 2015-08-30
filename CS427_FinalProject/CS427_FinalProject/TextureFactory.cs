@@ -51,7 +51,7 @@ namespace CS427_FinalProject
         private static void LoadButtonTextures()
         {
             buttonTextures = new Dictionary<ButtonType, Dictionary<ButtonState, List<Texture2D>>>();
-            for(int i=0;i<12;i++)
+            for(int i=0;i<14;i++)
             {
                 ButtonType type = (ButtonType)i;
                 buttonTextures.Add(type,GetAButton(type));

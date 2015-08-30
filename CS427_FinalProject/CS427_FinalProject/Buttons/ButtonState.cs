@@ -9,6 +9,7 @@ namespace CS427_FinalProject.Buttons
     {
         Normal = 0,
         Hover = 1,
-        Click = 2
+        Locked = 2,
+        Click = 3,
     }
 }
