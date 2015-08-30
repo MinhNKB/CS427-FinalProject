@@ -24,7 +24,7 @@ namespace CS427_FinalProject.Buttons
         protected override void OnClick()
         {
             base.OnClick();
-            Global.gViewState = ViewState.GameView;
+            Global.gViewState = ViewState.NewGameView;
         }
     }
 }
