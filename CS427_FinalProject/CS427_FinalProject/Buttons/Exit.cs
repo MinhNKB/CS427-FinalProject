@@ -20,5 +20,11 @@ namespace CS427_FinalProject.Buttons
             this.height = buttonImages[0].Height;
             this.CurrentState = ButtonState.Normal;
         }
+
+        protected override void OnClick()
+        {
+            base.OnClick();
+            Global.gGame.Exit();
+        }
     }
 }

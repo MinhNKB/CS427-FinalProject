@@ -45,8 +45,8 @@ namespace CS427_FinalProject
         private void LoadCharacters()
         {
             characters = new List<Character>();
-            characters.Add(new Dog());
             characters.Add(new Cat());
+            characters.Add(new Dog());
             foreach(Character c in characters)
                 c.Respawn += c_Respawn;
         }

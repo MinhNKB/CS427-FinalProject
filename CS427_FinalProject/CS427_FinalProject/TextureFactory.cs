@@ -16,6 +16,7 @@ namespace CS427_FinalProject
     class TextureFactory
     {
         public static Dictionary<CharacterTexture, Dictionary<CharacterState, List<Texture2D>>> characterTextures;
+        public static Dictionary<CharacterTexture, List<Texture2D>> headTextures;
         public static List<Texture2D> backgroundTexture;
         public static List<List<Texture2D>> mapTileTextures;
         public static List<Texture2D> boxTexture;
@@ -34,6 +35,19 @@ namespace CS427_FinalProject
             LoadMenuBackgroundTexture();
             LoadMenuLogo();
             LoadButtonTextures();
+            LoadHeadTextures();
+        }
+
+        private static void LoadHeadTextures()
+        {
+            headTextures = new Dictionary<CharacterTexture, List<Texture2D>>();
+            for(int i=0;i<2;i++)
+            {
+                CharacterTexture character = (CharacterTexture)i;
+                List<Texture2D> temp = new List<Texture2D>();
+                temp.Add(Global.gContent.Load<Texture2D>(@"Textures\Characters\Head\Head_" + character.ToString()));
+                headTextures.Add(character, temp);
+            }
         }
 
         private static void LoadMenuLogo()

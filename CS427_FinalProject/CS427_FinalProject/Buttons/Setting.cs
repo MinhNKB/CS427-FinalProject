@@ -24,6 +24,7 @@ namespace CS427_FinalProject.Buttons
         protected override void OnClick()
         {
             base.OnClick();
+            Global.gPreviousViewState = Global.gViewState;
             Global.gViewState = ViewState.SettingView;
         }
     }
