@@ -26,7 +26,7 @@ namespace CS427_FinalProject
             Content.RootDirectory = "Content";
             graphics.PreferredBackBufferWidth = 1280;
             graphics.PreferredBackBufferHeight = 720;
-            //graphics.IsFullScreen = true;
+            graphics.IsFullScreen = true;
             this.TargetElapsedTime = TimeSpan.FromSeconds(1.0f / 30.0f);
             IsMouseVisible = true;
         }
@@ -54,6 +54,7 @@ namespace CS427_FinalProject
             spriteBatch = new SpriteBatch(GraphicsDevice);
             Global.gContent = this.Content;
             Global.gViewState = ViewState.MainMenuView;
+            Global.gGame = this;
             Global.gDefaultMediumFont = Content.Load<SpriteFont>("DefaultMediumFont");
             Global.gDefaultLargeFont = Content.Load<SpriteFont>("DefaultLargeFont");
             TextureFactory.Load();

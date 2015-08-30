@@ -20,7 +20,8 @@ namespace CS427_FinalProject
         public static Game gGame;
         public static int gMusic;
         public static int gSound;
-       
+        public static ViewState gPreviousViewState;
+
         public static void UpdateAll(Microsoft.Xna.Framework.GameTime gameTime)
         {            
             gKeyboardHelper.Update(gameTime);
