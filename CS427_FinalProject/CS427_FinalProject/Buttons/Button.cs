@@ -32,10 +32,6 @@ namespace CS427_FinalProject.Buttons
                 {
                     OnHover();
                 }
-                else if(currentState == ButtonState.Click)
-                {
-                    OnClick();
-                }
             }
         }
 
@@ -101,7 +97,7 @@ namespace CS427_FinalProject.Buttons
                 {
                     if (IsMouseOver(mousePosition))
                     {
-                        CurrentState = ButtonState.Click;
+                        OnClick();
                     }
                 }
                 else
