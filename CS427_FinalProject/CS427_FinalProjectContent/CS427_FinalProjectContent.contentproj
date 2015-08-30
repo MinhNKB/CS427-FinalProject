@@ -857,6 +857,38 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Textures\Menu\Buttons\Btn_ForrestMap_00.png">
+      <Name>Btn_ForrestMap_00</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Menu\Buttons\Btn_ForrestMap_01.png">
+      <Name>Btn_ForrestMap_01</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Menu\Buttons\Btn_ForrestMap_02.png">
+      <Name>Btn_ForrestMap_02</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Menu\Buttons\Btn_SnowMap_00.png">
+      <Name>Btn_SnowMap_00</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Menu\Buttons\Btn_SnowMap_01.png">
+      <Name>Btn_SnowMap_01</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Menu\Buttons\Btn_SnowMap_02.png">
+      <Name>Btn_SnowMap_02</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="DefaultLargeFont.spritefont">
       <Name>DefaultLargeFont</Name>
       <Importer>FontDescriptionImporter</Importer>
