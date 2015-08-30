@@ -19,6 +19,6 @@ namespace CS427_FinalProject.Buttons
             this.width = buttonImages[0].Width;
             this.height = buttonImages[0].Height;
             this.CurrentState = ButtonState.Normal;
-        }
+        }        
     }
 }

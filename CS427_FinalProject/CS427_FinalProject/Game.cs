@@ -53,8 +53,9 @@ namespace CS427_FinalProject
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             Global.gContent = this.Content;
-            Global.gViewState = ViewState.SettingView;
+            Global.gViewState = ViewState.MainMenuView;
             Global.gDefaultMediumFont = Content.Load<SpriteFont>("DefaultMediumFont");
+            Global.gDefaultLargeFont = Content.Load<SpriteFont>("DefaultLargeFont");
             TextureFactory.Load();
             gameHandler = new GameHandler();
             // TODO: use this.Content to load your game content here
