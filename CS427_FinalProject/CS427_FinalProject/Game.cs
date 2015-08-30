@@ -26,7 +26,7 @@ namespace CS427_FinalProject
             Content.RootDirectory = "Content";
             graphics.PreferredBackBufferWidth = 1280;
             graphics.PreferredBackBufferHeight = 720;
-            graphics.IsFullScreen = true;
+            //graphics.IsFullScreen = true;
             this.TargetElapsedTime = TimeSpan.FromSeconds(1.0f / 30.0f);
             IsMouseVisible = true;
         }
@@ -57,6 +57,7 @@ namespace CS427_FinalProject
             Global.gGame = this;
             Global.gDefaultMediumFont = Content.Load<SpriteFont>("DefaultMediumFont");
             Global.gDefaultLargeFont = Content.Load<SpriteFont>("DefaultLargeFont");
+            Global.gDefaultExtraLargeFont = Content.Load<SpriteFont>("DefaultExtraLargeFont");
             TextureFactory.Load();
             gameHandler = new GameHandler();
             // TODO: use this.Content to load your game content here
@@ -85,7 +86,7 @@ namespace CS427_FinalProject
             // TODO: Add your update logic here
             Global.UpdateAll(gameTime);
             if (Global.gKeyboardHelper.IsKeyPressed(Keys.Escape))
-                this.Exit();
+                Global.gViewState = ViewState.PausedView;
 
 
             this.gameHandler.Update(gameTime);

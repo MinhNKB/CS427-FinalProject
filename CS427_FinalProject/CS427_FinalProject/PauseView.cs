@@ -18,14 +18,26 @@ namespace CS427_FinalProject
 
         private void AddEvents()
         {
+            this.buttons[1].Click += ReloadBtn_Click;
+            this.buttons[2].Click += ResumeBtn_Click;
+        }
+
+        void ReloadBtn_Click(object sender, EventArgs e)
+        {
+            Global.gViewState = ViewState.NewGameView;
+        }
+
+        void ResumeBtn_Click(object sender, EventArgs e)
+        {
+            Global.gViewState = ViewState.GameView;
         }
 
         private void AddButtons()
         {
-            this.buttons.Add(new Menu(316, 291));
-            this.buttons.Add(new Reload(486, 291));
-            this.buttons.Add(new Resume(656, 291));
-            this.buttons.Add(new Setting(826, 291));
+            this.buttons.Add(new Menu(316, 430));
+            this.buttons.Add(new Reload(486, 430));
+            this.buttons.Add(new Resume(656, 430));
+            this.buttons.Add(new Setting(826, 430));
         }
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
@@ -36,7 +48,7 @@ namespace CS427_FinalProject
         {
             base.Draw(gameTime, param);
             SpriteBatch spriteBatch = param as SpriteBatch;
-            spriteBatch.DrawString(Global.gDefaultExtraLargeFont, "Paused", new Vector2(515, 64), Color.FromNonPremultiplied(206, 235, 12, 255), 0f, Vector2.Zero, 1f, SpriteEffects.None, 1);
+            spriteBatch.DrawString(Global.gDefaultExtraLargeFont, "Paused", new Vector2(390, 180), Color.FromNonPremultiplied(206, 235, 12, 255), 0f, Vector2.Zero, 1f, SpriteEffects.None, 1);
         }
     }
 }
