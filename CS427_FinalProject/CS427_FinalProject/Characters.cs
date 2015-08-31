@@ -72,6 +72,7 @@ namespace CS427_FinalProject
                     SpecialEffect effect = Global.gMap.GetEffect(c.BoundingBox);
                     if (effect != SpecialEffect.None)
                     {
+                        Effects.Data[EffectType.Box].Play(Global.gSound * 0.2f, 0, 0);
                         c.CurrentState = CharacterState.Jump;
                         if (effect != SpecialEffect.NoJump)
                         {
