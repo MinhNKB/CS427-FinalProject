@@ -88,14 +88,26 @@ namespace CS427_FinalProject
                     paddingLeft = 20;
                     paddingTop = 3;                   
                 }
+
                 if(currentState == CharacterState.Jump)
                 {
                     if (this.CurrentEffect != SpecialEffect.DoubleJump)
                         verticalVelocity = -28;
                     else
                         verticalVelocity = -35;
+                    Effects.Data[EffectType.Jump].Play(Global.gSound * 0.2f, 0, 0);
                 }
-                
+                if(currentState == CharacterState.Dead)
+                {
+                    if(this.GetType().Name == "Cat")
+                    {
+                        Effects.Data[EffectType.Cat].Play(Global.gSound * 0.2f, 0, 0);
+                    }
+                    else
+                    {
+                        Effects.Data[EffectType.Dog].Play(Global.gSound * 0.2f, 0, 0);
+                    }
+                }
             }
         }
 
@@ -242,7 +254,7 @@ namespace CS427_FinalProject
                             this.CurrentState = CharacterState.Idle;
                         if (Global.gKeyboardHelper.IsKeyPressed(keyUp) && this.currentEffect != SpecialEffect.NoJump)
                         {
-                            this.CurrentState = CharacterState.Jump;                                      
+                            this.CurrentState = CharacterState.Jump;                           
                         }
                     }                    
                 }
