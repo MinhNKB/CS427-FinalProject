@@ -19,7 +19,7 @@ namespace CS427_FinalProject
 
         public Decor(float left, float top, float depth, int type)
         {
-            this.sprite2D = new Sprite2D(TextureFactory.decorTextures[type], left, top - TextureFactory.decorTextures[type][0].Height, 0, 0);
+            this.sprite2D = new Sprite2D(TextureFactory.decorTextures[Global.gMapState][type], left, top - TextureFactory.decorTextures[Global.gMapState][type][0].Height, 0, 0);
             this.sprite2D.Depth = depth;
         }
 

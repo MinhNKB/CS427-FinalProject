@@ -10,8 +10,6 @@ namespace CS427_FinalProject
 {
     class Decors : VisibleGameEntity
     {
-        private const string fileName = "Map_01.xml";
-
         private List<Decor> decorList;
 
         public List<Decor> DecorList
@@ -20,12 +18,12 @@ namespace CS427_FinalProject
             set { decorList = value; }
         }
 
-        public Decors()
+        public Decors(string fileName)
         {
-            LoadDecors();
+            LoadDecors(fileName);
         }
 
-        private void LoadDecors()
+        private void LoadDecors(string fileName)
         {
             this.decorList = new List<Decor>();
 

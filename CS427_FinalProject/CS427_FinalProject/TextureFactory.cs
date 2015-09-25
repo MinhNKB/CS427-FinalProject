@@ -17,10 +17,10 @@ namespace CS427_FinalProject
     {
         public static Dictionary<CharacterTexture, Dictionary<CharacterState, List<Texture2D>>> characterTextures;
         public static Dictionary<CharacterTexture, List<Texture2D>> headTextures;
-        public static List<Texture2D> backgroundTexture;
-        public static List<List<Texture2D>> mapTileTextures;
+        public static Dictionary<MapState, List<Texture2D>> backgroundTexture;
+        public static Dictionary<MapState, List<List<Texture2D>>> mapTileTextures;
         public static List<Texture2D> boxTexture;
-        public static List<List<Texture2D>> decorTextures;
+        public static Dictionary<MapState, List<List<Texture2D>>> decorTextures;
         public static List<Texture2D> menuBackgroundTexture;
         public static List<Texture2D> menuLogoTexture;
         public static Dictionary<ButtonType, Dictionary<ButtonState, List<Texture2D>>> buttonTextures;
@@ -87,13 +87,24 @@ namespace CS427_FinalProject
 
         private static void LoadDecorTextures()
         {
-            decorTextures = new List<List<Texture2D>>();
+            decorTextures = new Dictionary<MapState, List<List<Texture2D>>>();
+            List<List<Texture2D>> decorTextures00 = new List<List<Texture2D>>();
+            for (int i = 0; i < 12; ++i)
+            {
+                List<Texture2D> tmp = new List<Texture2D>();
+                tmp.Add(Global.gContent.Load<Texture2D>(@"Textures\Maps\Forrest\Decors\Decor_" + i.ToString("00")));
+                decorTextures00.Add(tmp);
+            }
+            decorTextures.Add(MapState.Forrest, decorTextures00);
+            List<List<Texture2D>> decorTextures01 = new List<List<Texture2D>>();
             for (int i = 0; i < 9; ++i)
             {
                 List<Texture2D> tmp = new List<Texture2D>();
                 tmp.Add(Global.gContent.Load<Texture2D>(@"Textures\Maps\Snow\Decors\Decor_" + i.ToString("00")));
-                decorTextures.Add(tmp);
+                decorTextures01.Add(tmp);
             }
+            decorTextures.Add(MapState.Snow, decorTextures01);
+
         }
 
         private static void LoadBoxTexture()
@@ -104,13 +115,23 @@ namespace CS427_FinalProject
 
         private static void LoadMapTileTextures()
         {
-            mapTileTextures = new List<List<Texture2D>>();
+            mapTileTextures = new Dictionary<MapState, List<List<Texture2D>>>();
+            List<List<Texture2D>> mapTileTextures00 = new List<List<Texture2D>>();
+            for (int i = 0; i < 18; ++i)
+            {
+                List<Texture2D> tmp = new List<Texture2D>();
+                tmp.Add(Global.gContent.Load<Texture2D>(@"Textures\Maps\Forrest\Tiles\Tile_" + i.ToString("00")));
+                mapTileTextures00.Add(tmp);
+            }
+            mapTileTextures.Add(MapState.Forrest, mapTileTextures00);
+            List<List<Texture2D>> mapTileTextures01 = new List<List<Texture2D>>();
             for (int i = 0; i < 18; ++i)
             {
                 List<Texture2D> tmp = new List<Texture2D>();
                 tmp.Add(Global.gContent.Load<Texture2D>(@"Textures\Maps\Snow\Tiles\Tile_" + i.ToString("00")));
-                mapTileTextures.Add(tmp);
+                mapTileTextures01.Add(tmp);
             }
+            mapTileTextures.Add(MapState.Snow, mapTileTextures01);
         }
 
         private static void LoadCharacterTextures()
@@ -155,8 +176,13 @@ namespace CS427_FinalProject
 
         private static void LoadBackgroundTexture()
         {
-            backgroundTexture = new List<Texture2D>();
-            backgroundTexture.Add(Global.gContent.Load<Texture2D>(@"Textures\Maps\Snow\Background\Background_00"));
+            backgroundTexture = new Dictionary<MapState, List<Texture2D>>();
+            List<Texture2D> backgroundTexture00 = new List<Texture2D>();
+            List<Texture2D> backgroundTexture01 = new List<Texture2D>();
+            backgroundTexture00.Add(Global.gContent.Load<Texture2D>(@"Textures\Maps\Forrest\Background\Background_00"));
+            backgroundTexture01.Add(Global.gContent.Load<Texture2D>(@"Textures\Maps\Snow\Background\Background_00"));
+            backgroundTexture.Add(MapState.Forrest, backgroundTexture00);
+            backgroundTexture.Add(MapState.Snow, backgroundTexture01);
         }
     }
 }
