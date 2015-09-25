@@ -85,6 +85,7 @@
     <Compile Include="Buttons\Menu.cs" />
     <Compile Include="Buttons\Minus.cs" />
     <Compile Include="Buttons\Music.cs" />
+    <Compile Include="Buttons\Pause.cs" />
     <Compile Include="Buttons\Play.cs" />
     <Compile Include="Buttons\Plus.cs" />
     <Compile Include="Buttons\Reload.cs" />

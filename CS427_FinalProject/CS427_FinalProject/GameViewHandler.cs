@@ -1,5 +1,7 @@
-﻿using Microsoft.Xna.Framework;
+﻿using CS427_FinalProject.Buttons;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +16,7 @@ namespace CS427_FinalProject
         private string score = "";
         private float positionScore,positionCatHead,positionDogHead;
         Sprite2D catHead, dogHead;
+        Button pause = new Pause(1220, 5);
 
         public GameViewHandler()
         {
@@ -28,6 +31,8 @@ namespace CS427_FinalProject
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
+            if (Global.gKeyboardHelper.IsKeyPressed(Keys.Escape))
+                Global.gViewState = ViewState.PausedView;
             map.Update(gameTime);
             characters.Update(gameTime);
             List<Vector4> distances = map.GetDistances(this.characters.BoundingBoxes);
@@ -39,11 +44,22 @@ namespace CS427_FinalProject
             positionScore = (1280 - Global.gDefaultMediumFont.MeasureString(score).X) / 2;
             positionCatHead = positionScore - catHead.Width - 10;
             positionDogHead = positionScore + Global.gDefaultMediumFont.MeasureString(score).X + 10;
+            pause.Update(gameTime);
+
+            foreach(Character c in characters.ListCharacters)
+            {
+                if(c.Point == Global.gKillLimit)
+                {
+                    Global.gViewState = ViewState.GameOverView;
+                    Global.gWinner = c.GetType().Name.ToString();
+                }
+            }
         }
         public override void Draw(GameTime gameTime, object param)
         {
             base.Draw(gameTime, param);
             map.Draw(gameTime, param);
+            pause.Draw(gameTime, param);
             characters.Draw(gameTime, param);
             
             SpriteBatch spriteBatch = param as SpriteBatch;

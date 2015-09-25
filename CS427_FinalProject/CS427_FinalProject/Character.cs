@@ -136,7 +136,7 @@ namespace CS427_FinalProject
             Dictionary<CharacterState, List<Texture2D>> tmp = TextureFactory.characterTextures[type];
             foreach (CharacterState state in tmp.Keys)
             {
-                this.characterSprites.Add(state, new Sprite2D(tmp[state], 0, 0, 0, 0));
+                this.characterSprites.Add(state, new Sprite2D(tmp[state], 0, 0, 0, 0));                               
                 if (state != CharacterState.Idle && state != CharacterState.Run)
                     this.characterSprites[state].Repeat = false;
             }
@@ -284,9 +284,9 @@ namespace CS427_FinalProject
                 else
                 {
                     if (Global.gMap.isFront(this.BoundingBox))
-                        this.characterSprites[currentState].Depth = 1f;
-                    else
                         this.characterSprites[currentState].Depth = 0.9f;
+                    else
+                        this.characterSprites[currentState].Depth = 0.8f;
                 }
 
                 this.ActualBottom += verticalVelocity;    

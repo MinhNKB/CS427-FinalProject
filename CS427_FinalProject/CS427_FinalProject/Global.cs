@@ -21,6 +21,8 @@ namespace CS427_FinalProject
         public static int gMusic = 3;
         public static int gSound = 3;
         public static ViewState gPreviousViewState;
+        public static string gWinner;
+        public static Dictionary<ViewState, ViewHandler> gViewHandlers;
 
         public static void UpdateAll(Microsoft.Xna.Framework.GameTime gameTime)
         {            

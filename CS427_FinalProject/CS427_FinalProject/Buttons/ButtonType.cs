@@ -22,5 +22,6 @@ namespace CS427_FinalProject.Buttons
         ForrestMap = 12,
         SnowMap = 13,
         Back = 14,
+        Pause = 15,
     }
 }

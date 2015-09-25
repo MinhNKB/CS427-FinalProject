@@ -46,7 +46,10 @@ namespace CS427_FinalProject
 
         public override void Draw(Microsoft.Xna.Framework.GameTime gameTime, object param)
         {
-            base.Draw(gameTime, param);
+            Global.gViewHandlers[ViewState.GameView].Draw(gameTime, param);
+            //base.Draw(gameTime, param);
+            foreach (Button button in buttons)
+                button.Draw(gameTime, param);      
             SpriteBatch spriteBatch = param as SpriteBatch;
             spriteBatch.DrawString(Global.gDefaultExtraLargeFont, "Paused", new Vector2(390, 180), Color.FromNonPremultiplied(206, 235, 12, 255), 0f, Vector2.Zero, 1f, SpriteEffects.None, 1);
         }

@@ -23,7 +23,7 @@ namespace CS427_FinalProject
             AddButtons();
             AddEvents();
             this.buttons[0].CurrentState = ButtonState.Locked;
-            Global.gKillLimit = 10;
+            Global.gKillLimit = 1;
         }
 
         private void AddEvents()

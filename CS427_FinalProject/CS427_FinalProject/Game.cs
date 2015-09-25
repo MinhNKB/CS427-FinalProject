@@ -89,10 +89,7 @@ namespace CS427_FinalProject
                 this.Exit();
 
             // TODO: Add your update logic here
-            Global.UpdateAll(gameTime);
-            if (Global.gKeyboardHelper.IsKeyPressed(Keys.Escape))
-                Global.gViewState = ViewState.PausedView;
-
+            Global.UpdateAll(gameTime);           
 
             this.gameHandler.Update(gameTime);
 

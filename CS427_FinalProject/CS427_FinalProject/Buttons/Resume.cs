@@ -12,7 +12,7 @@ namespace CS427_FinalProject.Buttons
             for(int i=0;i<3;i++)
             {
                 ButtonState state = (ButtonState)i;
-                this.buttonImages.Add(state, new Sprite2D(TextureFactory.buttonTextures[ButtonType.Resume][state], 0, 0, 0, 0));
+                this.buttonImages.Add(state, new Sprite2D(TextureFactory.buttonTextures[ButtonType.Resume][state], 0, 0, 0, 0));                
             }
             this.Left = left;
             this.Top = top;
