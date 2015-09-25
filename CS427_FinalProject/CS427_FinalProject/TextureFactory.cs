@@ -88,10 +88,10 @@ namespace CS427_FinalProject
         private static void LoadDecorTextures()
         {
             decorTextures = new List<List<Texture2D>>();
-            for (int i = 0; i < 12; ++i)
+            for (int i = 0; i < 9; ++i)
             {
                 List<Texture2D> tmp = new List<Texture2D>();
-                tmp.Add(Global.gContent.Load<Texture2D>(@"Textures\Maps\Forrest\Decor\Decor_" + i.ToString("00")));
+                tmp.Add(Global.gContent.Load<Texture2D>(@"Textures\Maps\Snow\Decors\Decor_" + i.ToString("00")));
                 decorTextures.Add(tmp);
             }
         }
@@ -99,7 +99,7 @@ namespace CS427_FinalProject
         private static void LoadBoxTexture()
         {
             boxTexture = new List<Texture2D>();
-            boxTexture.Add(Global.gContent.Load<Texture2D>(@"Textures\Maps\Forrest\Box\Box_00"));
+            boxTexture.Add(Global.gContent.Load<Texture2D>(@"Textures\Maps\Forrest\Boxes\Box_00"));
         }
 
         private static void LoadMapTileTextures()
@@ -108,7 +108,7 @@ namespace CS427_FinalProject
             for (int i = 0; i < 18; ++i)
             {
                 List<Texture2D> tmp = new List<Texture2D>();
-                tmp.Add(Global.gContent.Load<Texture2D>(@"Textures\Maps\Forrest\Tiles\Tile_" + i.ToString("00")));
+                tmp.Add(Global.gContent.Load<Texture2D>(@"Textures\Maps\Snow\Tiles\Tile_" + i.ToString("00")));
                 mapTileTextures.Add(tmp);
             }
         }
@@ -156,7 +156,7 @@ namespace CS427_FinalProject
         private static void LoadBackgroundTexture()
         {
             backgroundTexture = new List<Texture2D>();
-            backgroundTexture.Add(Global.gContent.Load<Texture2D>(@"Textures\Maps\Forrest\Background\Background_00"));
+            backgroundTexture.Add(Global.gContent.Load<Texture2D>(@"Textures\Maps\Snow\Background\Background_00"));
         }
     }
 }

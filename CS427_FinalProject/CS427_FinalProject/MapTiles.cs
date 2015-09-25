@@ -10,7 +10,7 @@ namespace CS427_FinalProject
 {
     class MapTiles : VisibleGameEntity
     {
-        private const string fileName = "Map.xml";
+        private const string fileName = "Map_01.xml";
         private List<MapTile> tiles;
 
         public List<MapTile> Tiles

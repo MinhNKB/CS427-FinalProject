@@ -10,7 +10,7 @@ namespace CS427_FinalProject
 {
     class Decors : VisibleGameEntity
     {
-        private const string fileName = "Map.xml";
+        private const string fileName = "Map_01.xml";
 
         private List<Decor> decorList;
 
