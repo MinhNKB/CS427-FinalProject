@@ -23,7 +23,8 @@ namespace CS427_FinalProject
             AddButtons();
             AddEvents();
             this.buttons[0].CurrentState = ButtonState.Locked;
-            Global.gKillLimit = 1;
+            this.buttons[4].CurrentState = ButtonState.Locked;
+            Global.gKillLimit = 10;
         }
 
         private void AddEvents()
@@ -39,12 +40,20 @@ namespace CS427_FinalProject
         {
             if (Global.gKillLimit < 90)
                 Global.gKillLimit += 10;
+            if (Global.gKillLimit == 90)
+            {
+                this.buttons[5].CurrentState = ButtonState.Locked;
+            }
+            this.buttons[4].CurrentState = ButtonState.Normal;
         }
 
         private void MinusButton_Click(object sender, EventArgs e)
         {
             if (Global.gKillLimit > 10)
                 Global.gKillLimit -= 10;
+            if (Global.gKillLimit == 10)
+                this.buttons[4].CurrentState = ButtonState.Locked;
+            this.buttons[5].CurrentState = ButtonState.Normal;
         }
 
         private void AccpetButton_Click(object sender, EventArgs e)
@@ -57,6 +66,8 @@ namespace CS427_FinalProject
             this.buttons[3].CurrentState = ButtonState.Locked;
             this.buttons[2].CurrentState = ButtonState.Normal;
             this.buttons[0].CurrentState = ButtonState.Normal;
+            if (Global.gMapState == MapState.Forrest)
+                Global.gMapState = MapState.Snow;
         }
 
         private void ForrestMapButton_Click(object sender, EventArgs e)
@@ -64,6 +75,8 @@ namespace CS427_FinalProject
             this.buttons[2].CurrentState = ButtonState.Locked;
             this.buttons[3].CurrentState = ButtonState.Normal;
             this.buttons[0].CurrentState = ButtonState.Normal;
+            if (Global.gMapState == MapState.Snow)
+                Global.gMapState = MapState.Forrest;
         }
 
         private void AddButtons()

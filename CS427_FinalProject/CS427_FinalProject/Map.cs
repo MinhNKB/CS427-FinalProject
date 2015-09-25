@@ -19,9 +19,9 @@ namespace CS427_FinalProject
         public Map()
         {
             this.background = new Background();
-            this.mapTiles = new MapTiles();
+            this.mapTiles = new MapTiles("Map_" + ((int)(Global.gMapState)).ToString("00") + ".xml");
             CreateBox();
-            this.decors = new Decors();
+            this.decors = new Decors("Map_" + ((int)(Global.gMapState)).ToString("00") + ".xml");
             Global.gMap = this;
         }
 

@@ -13,7 +13,7 @@ namespace CS427_FinalProject
 
         public Background()
         {
-            this.sprite2D = new Sprite2D(TextureFactory.backgroundTexture, 0, 0, 0, 0);
+            this.sprite2D = new Sprite2D(TextureFactory.backgroundTexture[Global.gMapState], 0, 0, 0, 0);
             this.sprite2D.Depth = 0;
         }
 
