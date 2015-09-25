@@ -24,7 +24,7 @@ namespace CS427_FinalProject
         private string GetEffectString(SpecialEffect effect)
         {
             string result="";
-            if (effect == SpecialEffect.DoubleJump)
+            if (effect == SpecialEffect.SuperJump)
                 result = "Super Jump";
             else if (effect == SpecialEffect.Haste)
                 result = "Haste";
