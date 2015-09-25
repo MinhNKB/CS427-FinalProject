@@ -5,20 +5,26 @@ using System.Text;
 
 namespace CS427_FinalProject.Buttons
 {
-    class Reload : Button
+    class Pause : Button
     {
-        public Reload(float left, float top)
+        public Pause(float left, float top)
         {
             for(int i=0;i<3;i++)
             {
                 ButtonState state = (ButtonState)i;
-                this.buttonImages.Add(state, new Sprite2D(TextureFactory.buttonTextures[ButtonType.Reload][state], 0, 0, 0, 0));                
+                this.buttonImages.Add(state, new Sprite2D(TextureFactory.buttonTextures[ButtonType.Pause][state], 0, 0, 0, 0));                
             }
             this.Left = left;
             this.Top = top;
             this.width = buttonImages[0].Width;
             this.height = buttonImages[0].Height;
-            this.CurrentState = ButtonState.Normal;            
+            this.CurrentState = ButtonState.Normal;
+        }
+
+        protected override void OnClick()
+        {
+            base.OnClick();
+            Global.gViewState = ViewState.PausedView;
         }
     }
 }

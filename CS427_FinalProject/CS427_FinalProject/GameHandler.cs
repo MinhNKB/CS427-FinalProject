@@ -21,6 +21,7 @@ namespace CS427_FinalProject
             viewHandlers.Add(ViewState.GameOverView, new GameOverView());
 
             (viewHandlers[ViewState.NewGameView] as NewGameViewHandler).AcceptBtn_Click += GameHandler_AcceptBtn_Click;
+            Global.gViewHandlers = viewHandlers;
             //viewHandlers.Add(ViewState.MenuView, new MenuViewHandler());
         }
 
