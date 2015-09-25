@@ -11,7 +11,7 @@ namespace CS427_FinalProject
         Haste = 1,
         Reverse = 2,
         NoJump = 3,
-        DoubleJump = 4,
+        SuperJump = 4,
         Immortal = 255
     }
 }

@@ -91,7 +91,7 @@ namespace CS427_FinalProject
 
                 if(currentState == CharacterState.Jump)
                 {
-                    if (this.CurrentEffect != SpecialEffect.DoubleJump)
+                    if (this.CurrentEffect != SpecialEffect.SuperJump)
                         verticalVelocity = -28;
                     else
                         verticalVelocity = -35;
@@ -299,7 +299,7 @@ namespace CS427_FinalProject
                     this.CurrentEffect = SpecialEffect.None;
                 }
 
-                if (this.CurrentEffect == SpecialEffect.DoubleJump || this.CurrentEffect == SpecialEffect.Haste)
+                if (this.CurrentEffect == SpecialEffect.SuperJump || this.CurrentEffect == SpecialEffect.Haste)
                     characterSprites[currentState].Color = Color.FromNonPremultiplied(255, 255, 255, 255);
                 else if (this.CurrentEffect == SpecialEffect.NoJump || this.CurrentEffect == SpecialEffect.Reverse)
                     characterSprites[currentState].Color = Color.FromNonPremultiplied(255, 255, 255, 255);

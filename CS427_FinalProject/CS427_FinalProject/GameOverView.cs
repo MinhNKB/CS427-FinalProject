@@ -36,11 +36,11 @@ namespace CS427_FinalProject
             
             SpriteBatch spriteBatch = param as SpriteBatch;
             
-            spriteBatch.DrawString(Global.gDefaultExtraLargeFont, "Game Over", new Vector2(283.5f, 180), Color.FromNonPremultiplied(206, 235, 12, 255), 0f, Vector2.Zero, 1f, SpriteEffects.None, 1);
+            spriteBatch.DrawString(Global.gDefaultExtraLargeFont, "Game Over", new Vector2(283.5f, 150), Color.FromNonPremultiplied(206, 235, 12, 255), 0f, Vector2.Zero, 1f, SpriteEffects.None, 1);
             foreach (Button button in buttons)
-                button.Draw(gameTime, param);            
-            //float left = (1280 - Global.gDefaultLargeFont.MeasureString(Global.gWinner + " win!!!").X) / 2;
-            //spriteBatch.DrawString(Global.gDefaultLargeFont, Global.gWinner + " win!!!", new Vector2(left, 325), Color.FromNonPremultiplied(206, 235, 12, 255), 0f, Vector2.Zero, 1f, SpriteEffects.None, 1);
+                button.Draw(gameTime, param);
+            float left = (1280 - Global.gDefaultLargeFont.MeasureString(Global.gWinner + " win!!!").X) / 2;
+            spriteBatch.DrawString(Global.gDefaultLargeFont, Global.gWinner + " win!!!", new Vector2(left, 325), Color.FromNonPremultiplied(206, 235, 12, 255), 0f, Vector2.Zero, 1f, SpriteEffects.None, 1);
         }
     }
 }
