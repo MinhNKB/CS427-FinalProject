@@ -19,9 +19,9 @@ namespace CS427_FinalProject
         public Map()
         {
             this.background = new Background();
-            this.mapTiles = new MapTiles();
+            this.mapTiles = new MapTiles("Map_" + ((int)(Global.gMapState)).ToString("00") + ".xml");
             CreateBox();
-            this.decors = new Decors();
+            this.decors = new Decors("Map_" + ((int)(Global.gMapState)).ToString("00") + ".xml");
             Global.gMap = this;
         }
 
@@ -150,7 +150,7 @@ namespace CS427_FinalProject
 
         public SpecialEffect GetEffect(Vector4 boundingBox)
         {
-            if (IsBoxValid() && AbleToGetBox(boundingBox))
+            if (IsBoxValid() && IsAbleToGetBox(boundingBox))
             {
                 this.box.IsVisible = false;
                 this.lastCreatedBoxTime = DateTime.Now;
@@ -159,9 +159,23 @@ namespace CS427_FinalProject
             return SpecialEffect.None;
         }
 
-        private bool AbleToGetBox(Vector4 boundingBox)
+        public bool isFront(Vector4 boundingBox)
         {
-            if ((boundingBox.W <= this.box.BoundingBox.Y && boundingBox.W >= this.box.BoundingBox.Y - 10))
+            List<KeyValuePair<float, List<MapTile>>> list = this.mapTiles.HSortedTiles;
+            int index = MapTiles.FindIndexSortedTiles(boundingBox.W, list);
+            for (int i = index; i < list.Count; ++i)
+                foreach (MapTile tile in list[i].Value)
+                    if (IsHorizontalValid(boundingBox, tile) == true)
+                        if (tile.Sprite2D.Depth == 0.3f)
+                            return true;
+                        else
+                            return false;
+            return false;
+        }
+
+        private bool IsAbleToGetBox(Vector4 boundingBox)
+        {
+            if ((boundingBox.W <= this.box.BoundingBox.Y + 20 && boundingBox.W >= this.box.BoundingBox.Y))
                 if ((boundingBox.X > box.BoundingBox.X && boundingBox.X < box.BoundingBox.Z)
                     ||
                     (boundingBox.Z > box.BoundingBox.X && boundingBox.Z < box.BoundingBox.Z)

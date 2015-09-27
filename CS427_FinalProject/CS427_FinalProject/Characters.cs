@@ -10,6 +10,13 @@ namespace CS427_FinalProject
     class Characters : VisibleGameEntity
     {
         private List<Character> characters;
+        private EffectNotification effectNotification = new EffectNotification();
+
+        internal List<Character> ListCharacters
+        {
+            get { return characters; }
+            set { characters = value; }
+        }
 
         public List<Vector4> BoundingBoxes
         {
@@ -38,8 +45,8 @@ namespace CS427_FinalProject
         private void LoadCharacters()
         {
             characters = new List<Character>();
-            characters.Add(new Dog());
             characters.Add(new Cat());
+            characters.Add(new Dog());
             foreach(Character c in characters)
                 c.Respawn += c_Respawn;
         }
@@ -65,8 +72,13 @@ namespace CS427_FinalProject
                     SpecialEffect effect = Global.gMap.GetEffect(c.BoundingBox);
                     if (effect != SpecialEffect.None)
                     {
-                        if(effect!= SpecialEffect.NoJump)
+                        Effects.Data[EffectType.Box].Play(Global.gSound * 0.2f, 0, 0);
+                        c.CurrentState = CharacterState.Jump;
+                        if (effect != SpecialEffect.NoJump)
+                        {
                             c.CurrentEffect = effect;
+                            effectNotification.Show(effect, c.BoundingBox);
+                        }
                         else
                         {
                             int index = characters.IndexOf(c);
@@ -75,10 +87,12 @@ namespace CS427_FinalProject
                             else
                                 index = 0;
                             characters[index].CurrentEffect = SpecialEffect.NoJump;
-                        }
+                            effectNotification.Show(effect, characters[index].BoundingBox);
+                        }                        
                     }
                 }
-            }         
+            }
+            effectNotification.Update(gameTime);
             CheckKill();
             for (int i = 0; i < characters.Count; ++i)
                 characters[i].Update(gameTime);
@@ -91,12 +105,13 @@ namespace CS427_FinalProject
             {
                 foreach(Character c2 in characters)
                 {
-                    if (c1.BoundingBox.W >= c2.BoundingBox.Y - 10 && c1.BoundingBox.W <= c2.BoundingBox.Y + 10 && c1.CurrentState == CharacterState.Fall && c2.CurrentState != CharacterState.Dead)
+                    if (c1 != c2 && c1.BoundingBox.W >= c2.BoundingBox.Y && c1.BoundingBox.W <= c2.BoundingBox.Y + 45 && c1.CurrentState == CharacterState.Fall && c2.CurrentState != CharacterState.Dead && c2.CurrentEffect != SpecialEffect.Immortal)
                     {
                         if((c1.BoundingBox.X >= c2.BoundingBox.X && c1.BoundingBox.X <=c2.BoundingBox.Z) || (c1.BoundingBox.Z >= c2.BoundingBox.X && c1.BoundingBox.Z <=c2.BoundingBox.Z))
                         {
                             c2.CurrentState = CharacterState.Dead;
                             c1.CurrentState = CharacterState.Jump;
+                            c1.Point++;
                         }
                     }
                 }
@@ -108,6 +123,7 @@ namespace CS427_FinalProject
             base.Draw(gameTime, param);
             for (int i = 0; i < characters.Count; ++i)
                 characters[i].Draw(gameTime, param);
+            effectNotification.Draw(gameTime, param);
         }
     }
 }

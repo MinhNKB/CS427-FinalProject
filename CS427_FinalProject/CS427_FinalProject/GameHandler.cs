@@ -14,7 +14,21 @@ namespace CS427_FinalProject
             viewHandlers = new Dictionary<ViewState, ViewHandler>();
 
             viewHandlers.Add(ViewState.GameView, new GameViewHandler());
+            viewHandlers.Add(ViewState.MainMenuView, new MainMenuViewHandler());
+            viewHandlers.Add(ViewState.NewGameView, new NewGameViewHandler());
+            viewHandlers.Add(ViewState.SettingView, new SettingView());
+            viewHandlers.Add(ViewState.PausedView, new PauseView());
+            viewHandlers.Add(ViewState.GameOverView, new GameOverView());
+
+            (viewHandlers[ViewState.NewGameView] as NewGameViewHandler).AcceptBtn_Click += GameHandler_AcceptBtn_Click;
+            Global.gViewHandlers = viewHandlers;
             //viewHandlers.Add(ViewState.MenuView, new MenuViewHandler());
+        }
+
+        void GameHandler_AcceptBtn_Click(object sender, EventArgs e)
+        {
+            viewHandlers[ViewState.GameView] = new GameViewHandler();
+            Global.gViewState = ViewState.GameView;
         }
 
         public override void Update(GameTime gameTime)

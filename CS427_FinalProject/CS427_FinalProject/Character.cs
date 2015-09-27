@@ -27,12 +27,18 @@ namespace CS427_FinalProject
         protected float horizontalDirection, verticalVelocity;
         protected Keys lastKeyPressed = Keys.None;
         protected bool reverse = false;
-        protected Keys keyUp, keyDown, keyLeft, keyRight;
-        protected float jumpHeight;
+        protected Keys keyUp, keyDown, keyLeft, keyRight;        
         protected Vector4 distances;
         protected int delayRespawn, effectDuration;
         protected int hasteFactor = 1;
         protected int gravityAcceleration = 3;
+        private int point;        
+
+        public int Point
+        {
+            get { return point; }
+            set { point = value; }
+        }
 
         public Vector4 Distances
         {
@@ -82,14 +88,26 @@ namespace CS427_FinalProject
                     paddingLeft = 20;
                     paddingTop = 3;                   
                 }
+
                 if(currentState == CharacterState.Jump)
                 {
-                    if (this.CurrentEffect != SpecialEffect.DoubleJump)
+                    if (this.CurrentEffect != SpecialEffect.SuperJump)
                         verticalVelocity = -28;
                     else
                         verticalVelocity = -35;
+                    Effects.Data[EffectType.Jump].Play(Global.gSound * 0.2f, 0, 0);
                 }
-                
+                if(currentState == CharacterState.Dead)
+                {
+                    if(this.GetType().Name == "Cat")
+                    {
+                        Effects.Data[EffectType.Cat].Play(Global.gSound * 0.2f, 0, 0);
+                    }
+                    else
+                    {
+                        Effects.Data[EffectType.Dog].Play(Global.gSound * 0.2f, 0, 0);
+                    }
+                }
             }
         }
 
@@ -100,7 +118,9 @@ namespace CS427_FinalProject
             get { return currentEffect; }
             set { 
                 currentEffect = value;
-                if (currentEffect != SpecialEffect.None)
+                if (currentEffect == SpecialEffect.Immortal)
+                    this.effectDuration = 40;
+                else if (currentEffect != SpecialEffect.None)
                     this.effectDuration = 150;
             }
         }
@@ -108,7 +128,7 @@ namespace CS427_FinalProject
         public Character()
         {            
             this.characterSprites = new Dictionary<CharacterState, Sprite2D>();
-            this.CurrentState = CharacterState.Idle;
+            this.point = 0;
         }
 
         protected void LoadSprites(CharacterTexture type)
@@ -116,7 +136,7 @@ namespace CS427_FinalProject
             Dictionary<CharacterState, List<Texture2D>> tmp = TextureFactory.characterTextures[type];
             foreach (CharacterState state in tmp.Keys)
             {
-                this.characterSprites.Add(state, new Sprite2D(tmp[state], 0, 0, 0, 0));
+                this.characterSprites.Add(state, new Sprite2D(tmp[state], 0, 0, 0, 0));                               
                 if (state != CharacterState.Idle && state != CharacterState.Run)
                     this.characterSprites[state].Repeat = false;
             }
@@ -127,10 +147,10 @@ namespace CS427_FinalProject
             this.ActualLeft = left;
             this.ActualBottom = bottom;
             this.currentState = CharacterState.Idle;
-            this.CurrentEffect = SpecialEffect.None;
+            this.CurrentEffect = SpecialEffect.Immortal;
             this.verticalVelocity = 0;
             this.horizontalDirection = 0;
-            this.delayRespawn = 20;            
+            this.delayRespawn = 30;            
         }
 
         public override void Update(GameTime gameTime)
@@ -234,7 +254,7 @@ namespace CS427_FinalProject
                             this.CurrentState = CharacterState.Idle;
                         if (Global.gKeyboardHelper.IsKeyPressed(keyUp) && this.currentEffect != SpecialEffect.NoJump)
                         {
-                            this.CurrentState = CharacterState.Jump;                                      
+                            this.CurrentState = CharacterState.Jump;                           
                         }
                     }                    
                 }
@@ -250,15 +270,24 @@ namespace CS427_FinalProject
                             OnRespawn();
                     }
                 }
-   
 
-                if (this.ActualBottom == 720)
+
+                if (this.ActualBottom == 720 && this.CurrentState != CharacterState.Dead)
+                {
                     this.CurrentState = CharacterState.Dead;
+                    this.point--;
+                }
+
 
                 if (this.ActualBottom > 720 - 128)
                     this.characterSprites[this.CurrentState].Depth = 0.05f;
                 else
-                    this.characterSprites[this.CurrentState].Depth = 1;
+                {
+                    if (Global.gMap.isFront(this.BoundingBox))
+                        this.characterSprites[currentState].Depth = 0.9f;
+                    else
+                        this.characterSprites[currentState].Depth = 0.8f;
+                }
 
                 this.ActualBottom += verticalVelocity;    
                 this.characterSprites[this.CurrentState].Reverse = this.reverse;
@@ -269,12 +298,22 @@ namespace CS427_FinalProject
                 {
                     this.CurrentEffect = SpecialEffect.None;
                 }
+
+                if (this.CurrentEffect == SpecialEffect.SuperJump || this.CurrentEffect == SpecialEffect.Haste)
+                    characterSprites[currentState].Color = Color.FromNonPremultiplied(255, 255, 255, 255);
+                else if (this.CurrentEffect == SpecialEffect.NoJump || this.CurrentEffect == SpecialEffect.Reverse)
+                    characterSprites[currentState].Color = Color.FromNonPremultiplied(255, 255, 255, 255);
+                else
+                    characterSprites[currentState].Color = Color.White;
             }
+            
         }
 
         public override void Draw(GameTime gameTime, object param)
         {
             base.Draw(gameTime, param);
+            if (currentEffect == SpecialEffect.Immortal && effectDuration % 7 == 0)
+                return;
             if (currentState != CharacterState.None)
             {
                 this.characterSprites[this.CurrentState].Draw(gameTime, (SpriteBatch)param);

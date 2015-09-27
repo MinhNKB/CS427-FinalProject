@@ -28,6 +28,7 @@ namespace CS427_FinalProject
             graphics.PreferredBackBufferHeight = 720;
             //graphics.IsFullScreen = true;
             this.TargetElapsedTime = TimeSpan.FromSeconds(1.0f / 30.0f);
+            IsMouseVisible = true;
         }
 
         /// <summary>
@@ -40,8 +41,8 @@ namespace CS427_FinalProject
         {
             // TODO: Add your initialization logic here
 
-            base.Initialize();
-        }
+            base.Initialize();            
+        }        
 
         /// <summary>
         /// LoadContent will be called once per game and is the place to load
@@ -52,9 +53,19 @@ namespace CS427_FinalProject
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             Global.gContent = this.Content;
-            Global.gViewState = ViewState.GameView;
+            Global.gViewState = ViewState.MainMenuView;
+            Global.gGame = this;
+            Global.gDefaultMediumFont = Content.Load<SpriteFont>("DefaultMediumFont");
+            Global.gDefaultLargeFont = Content.Load<SpriteFont>("DefaultLargeFont");
+            Global.gDefaultExtraLargeFont = Content.Load<SpriteFont>("DefaultExtraLargeFont");
+            Global.gMapState = MapState.Forrest;
             TextureFactory.Load();
+            Effects.Load();
             gameHandler = new GameHandler();
+            Song music = Content.Load<Song>(@"Music\Music_00");
+            MediaPlayer.Play(music);
+            MediaPlayer.Volume = Global.gMusic * 0.2f;
+            MediaPlayer.IsRepeating = true;
             // TODO: use this.Content to load your game content here
         }
 
@@ -79,10 +90,7 @@ namespace CS427_FinalProject
                 this.Exit();
 
             // TODO: Add your update logic here
-            Global.UpdateAll(gameTime);
-            if (Global.gKeyboardHelper.IsKeyPressed(Keys.Escape))
-                this.Exit();
-
+            Global.UpdateAll(gameTime);           
 
             this.gameHandler.Update(gameTime);
 

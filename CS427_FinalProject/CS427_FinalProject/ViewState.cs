@@ -7,7 +7,11 @@ namespace CS427_FinalProject
 {
     enum ViewState
     {
-        MenuView = 0,
+        MainMenuView = 0,
         GameView = 1,
+        NewGameView = 2,
+        SettingView = 3,
+        PausedView = 4,
+        GameOverView = 5
     }
 }

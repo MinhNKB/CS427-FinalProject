@@ -10,7 +10,6 @@ namespace CS427_FinalProject
 {
     class MapTiles : VisibleGameEntity
     {
-        private const string fileName = "Map.xml";
         private List<MapTile> tiles;
 
         public List<MapTile> Tiles
@@ -35,12 +34,12 @@ namespace CS427_FinalProject
             set { hSortedTiles = value; }
         }
 
-        public MapTiles()
+        public MapTiles(string fileName)
         {
-            LoadMapTiles();
+            LoadMapTiles(fileName);
         }
 
-        private void LoadMapTiles()
+        private void LoadMapTiles(string fileName)
         {
             tiles = new List<MapTile>();
             vSortedTiles = new List<KeyValuePair<float, List<MapTile>>>();

@@ -30,11 +30,48 @@
     <Reference Include="Microsoft.Xna.Framework.Content.Pipeline.VideoImporters, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Textures\Maps\Snow\Tile\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Textures\Maps\Snow\Background\Background_00.png">
-      <Name>Background_00</Name>
+    <Compile Include="Textures\Maps\Snow\Decors\Decor_00.png">
+      <Name>Decor_00</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Maps\Snow\Decors\Decor_01.png">
+      <Name>Decor_01</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Maps\Snow\Decors\Decor_02.png">
+      <Name>Decor_02</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Maps\Snow\Decors\Decor_03.png">
+      <Name>Decor_03</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Maps\Snow\Decors\Decor_04.png">
+      <Name>Decor_04</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Maps\Snow\Decors\Decor_05.png">
+      <Name>Decor_05</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Maps\Snow\Decors\Decor_06.png">
+      <Name>Decor_06</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Maps\Snow\Decors\Decor_07.png">
+      <Name>Decor_07</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Maps\Snow\Decors\Decor_08.png">
+      <Name>Decor_08</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
@@ -587,70 +624,502 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Textures\Maps\Forrest\Box\Box_00.png">
+    <Compile Include="Textures\Maps\Forrest\Boxes\Box_00.png">
       <Name>Box_00</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Textures\Maps\Forrest\Decor\Decor_00.png">
-      <Name>Decor_00</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
+    <Compile Include="DefaultMediumFont.spritefont">
+      <Name>DefaultMediumFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
     </Compile>
-    <Compile Include="Textures\Maps\Forrest\Decor\Decor_01.png">
+    <Compile Include="Textures\Maps\Forrest\Decors\Decor_01.png">
       <Name>Decor_01</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Textures\Maps\Forrest\Decor\Decor_02.png">
+    <Compile Include="Textures\Maps\Forrest\Decors\Decor_02.png">
       <Name>Decor_02</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Textures\Maps\Forrest\Decor\Decor_03.png">
+    <Compile Include="Textures\Maps\Forrest\Decors\Decor_03.png">
       <Name>Decor_03</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Textures\Maps\Forrest\Decor\Decor_04.png">
+    <Compile Include="Textures\Maps\Forrest\Decors\Decor_04.png">
       <Name>Decor_04</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Textures\Maps\Forrest\Decor\Decor_05.png">
+    <Compile Include="Textures\Maps\Forrest\Decors\Decor_05.png">
       <Name>Decor_05</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Textures\Maps\Forrest\Decor\Decor_06.png">
+    <Compile Include="Textures\Maps\Forrest\Decors\Decor_06.png">
       <Name>Decor_06</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Textures\Maps\Forrest\Decor\Decor_07.png">
+    <Compile Include="Textures\Maps\Forrest\Decors\Decor_07.png">
       <Name>Decor_07</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Textures\Maps\Forrest\Decor\Decor_08.png">
+    <Compile Include="Textures\Maps\Forrest\Decors\Decor_08.png">
       <Name>Decor_08</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Textures\Maps\Forrest\Decor\Decor_09.png">
+    <Compile Include="Textures\Maps\Forrest\Decors\Decor_09.png">
       <Name>Decor_09</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Textures\Maps\Forrest\Decor\Decor_10.png">
+    <Compile Include="Textures\Maps\Forrest\Decors\Decor_10.png">
       <Name>Decor_10</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Textures\Maps\Forrest\Decor\Decor_11.png">
+    <Compile Include="Textures\Maps\Forrest\Decors\Decor_11.png">
       <Name>Decor_11</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Textures\Maps\Forrest\Decors\Decor_00.png">
+      <Name>Decor_00</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Textures\Menu\Background\Background_00.png">
+      <Name>Background_00</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Menu\Buttons\Btn_Accept_00.png">
+      <Name>Btn_Accept_00</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Menu\Buttons\Btn_Accept_01.png">
+      <Name>Btn_Accept_01</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Menu\Buttons\Btn_Accept_02.png">
+      <Name>Btn_Accept_02</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Menu\Buttons\Btn_Cancel_00.png">
+      <Name>Btn_Cancel_00</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Menu\Buttons\Btn_Cancel_01.png">
+      <Name>Btn_Cancel_01</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Menu\Buttons\Btn_Cancel_02.png">
+      <Name>Btn_Cancel_02</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Menu\Buttons\Btn_Exit_00.png">
+      <Name>Btn_Exit_00</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Menu\Buttons\Btn_Exit_01.png">
+      <Name>Btn_Exit_01</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Menu\Buttons\Btn_Exit_02.png">
+      <Name>Btn_Exit_02</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Menu\Buttons\Btn_Menu_00.png">
+      <Name>Btn_Menu_00</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Menu\Buttons\Btn_Menu_01.png">
+      <Name>Btn_Menu_01</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Menu\Buttons\Btn_Menu_02.png">
+      <Name>Btn_Menu_02</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Menu\Buttons\Btn_Minus_00.png">
+      <Name>Btn_Minus_00</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Menu\Buttons\Btn_Minus_01.png">
+      <Name>Btn_Minus_01</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Menu\Buttons\Btn_Minus_02.png">
+      <Name>Btn_Minus_02</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Menu\Buttons\Btn_Music_00.png">
+      <Name>Btn_Music_00</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Menu\Buttons\Btn_Music_01.png">
+      <Name>Btn_Music_01</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Menu\Buttons\Btn_Music_02.png">
+      <Name>Btn_Music_02</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Menu\Buttons\Btn_Play_00.png">
+      <Name>Btn_Play_00</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Menu\Buttons\Btn_Play_01.png">
+      <Name>Btn_Play_01</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Menu\Buttons\Btn_Play_02.png">
+      <Name>Btn_Play_02</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Menu\Buttons\Btn_Plus_00.png">
+      <Name>Btn_Plus_00</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Menu\Buttons\Btn_Plus_01.png">
+      <Name>Btn_Plus_01</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Menu\Buttons\Btn_Plus_02.png">
+      <Name>Btn_Plus_02</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Menu\Buttons\Btn_Reload_00.png">
+      <Name>Btn_Reload_00</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Menu\Buttons\Btn_Reload_01.png">
+      <Name>Btn_Reload_01</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Menu\Buttons\Btn_Reload_02.png">
+      <Name>Btn_Reload_02</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Menu\Buttons\Btn_Resume_00.png">
+      <Name>Btn_Resume_00</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Menu\Buttons\Btn_Resume_01.png">
+      <Name>Btn_Resume_01</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Menu\Buttons\Btn_Resume_02.png">
+      <Name>Btn_Resume_02</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Menu\Buttons\Btn_Setting_00.png">
+      <Name>Btn_Setting_00</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Menu\Buttons\Btn_Setting_01.png">
+      <Name>Btn_Setting_01</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Menu\Buttons\Btn_Setting_02.png">
+      <Name>Btn_Setting_02</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Menu\Buttons\Btn_Sound_00.png">
+      <Name>Btn_Sound_00</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Menu\Buttons\Btn_Sound_01.png">
+      <Name>Btn_Sound_01</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Menu\Buttons\Btn_Sound_02.png">
+      <Name>Btn_Sound_02</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Textures\Menu\Logo\Logo.png">
+      <Name>Logo</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Textures\Menu\Buttons\Btn_ForrestMap_00.png">
+      <Name>Btn_ForrestMap_00</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Menu\Buttons\Btn_ForrestMap_01.png">
+      <Name>Btn_ForrestMap_01</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Menu\Buttons\Btn_ForrestMap_02.png">
+      <Name>Btn_ForrestMap_02</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Menu\Buttons\Btn_SnowMap_00.png">
+      <Name>Btn_SnowMap_00</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Menu\Buttons\Btn_SnowMap_01.png">
+      <Name>Btn_SnowMap_01</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Menu\Buttons\Btn_SnowMap_02.png">
+      <Name>Btn_SnowMap_02</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DefaultLargeFont.spritefont">
+      <Name>DefaultLargeFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Textures\Menu\Buttons\Btn_Back_00.png">
+      <Name>Btn_Back_00</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Menu\Buttons\Btn_Back_01.png">
+      <Name>Btn_Back_01</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Menu\Buttons\Btn_Back_02.png">
+      <Name>Btn_Back_02</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DefaultExtraLargeFont.spritefont">
+      <Name>DefaultExtraLargeFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Textures\Characters\Head\Head_Cat.png">
+      <Name>Head_Cat</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Characters\Head\Head_Dog.png">
+      <Name>Head_Dog</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Music\Music_00.mp3">
+      <Name>Music_00</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+    <Compile Include="Sound\Box.wav">
+      <Name>Box</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Sound\Cat.wav">
+      <Name>Cat</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Sound\Click.wav">
+      <Name>Click</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Sound\Dog.wav">
+      <Name>Dog</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Sound\Jump.wav">
+      <Name>Jump</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Textures\Menu\Buttons\Btn_Pause_00.png">
+      <Name>Btn_Pause_00</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Menu\Buttons\Btn_Pause_01.png">
+      <Name>Btn_Pause_01</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Menu\Buttons\Btn_Pause_02.png">
+      <Name>Btn_Pause_02</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Textures\Maps\Snow\Boxes\Box_00.png">
+      <Name>Box_00</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Textures\Maps\Snow\Tiles\Tile_00.png">
+      <Name>Tile_00</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Maps\Snow\Tiles\Tile_01.png">
+      <Name>Tile_01</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Maps\Snow\Tiles\Tile_02.png">
+      <Name>Tile_02</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Maps\Snow\Tiles\Tile_03.png">
+      <Name>Tile_03</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Maps\Snow\Tiles\Tile_04.png">
+      <Name>Tile_04</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Maps\Snow\Tiles\Tile_05.png">
+      <Name>Tile_05</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Maps\Snow\Tiles\Tile_06.png">
+      <Name>Tile_06</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Maps\Snow\Tiles\Tile_07.png">
+      <Name>Tile_07</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Maps\Snow\Tiles\Tile_08.png">
+      <Name>Tile_08</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Maps\Snow\Tiles\Tile_09.png">
+      <Name>Tile_09</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Maps\Snow\Tiles\Tile_10.png">
+      <Name>Tile_10</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Maps\Snow\Tiles\Tile_11.png">
+      <Name>Tile_11</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Maps\Snow\Tiles\Tile_12.png">
+      <Name>Tile_12</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Maps\Snow\Tiles\Tile_13.png">
+      <Name>Tile_13</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Maps\Snow\Tiles\Tile_14.png">
+      <Name>Tile_14</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Maps\Snow\Tiles\Tile_15.png">
+      <Name>Tile_15</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Maps\Snow\Tiles\Tile_16.png">
+      <Name>Tile_16</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Maps\Snow\Tiles\Tile_17.png">
+      <Name>Tile_17</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Compile Include="Textures\Maps\Snow\Background\Background_00.png">
+      <Name>Background_00</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
